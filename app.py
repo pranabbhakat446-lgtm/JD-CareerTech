@@ -35,6 +35,13 @@ app.secret_key = "career_internship_network_secret_key"
 
 create_tables()
 
+# =========================================================
+# ROOT PAGE
+# =========================================================
+
+@app.route("/")
+def index():
+    return redirect(url_for("home"))
 
 # =========================================================
 # HOME PAGE
