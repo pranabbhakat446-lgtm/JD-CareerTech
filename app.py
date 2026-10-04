@@ -14,11 +14,7 @@ from werkzeug.security import (
     check_password_hash
 )
 
-from database import (
-    get_db_connection,
-    create_tables
-)
-
+from database_pg import (get_db_connection, create_tables)
 
 app = Flask(__name__)
 
@@ -35,13 +31,10 @@ app.secret_key = "career_internship_network_secret_key"
 
 create_tables()
 
-# =========================================================
-# ROOT PAGE
-# =========================================================
-
 @app.route("/")
 def index():
     return redirect(url_for("home"))
+
 
 # =========================================================
 # HOME PAGE
