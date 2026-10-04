@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Internships & Training | Career & Internship Network
+    </title>
+
+    <meta name="description"
+          content="Find verified internships and training opportunities for diploma, engineering, BCA, B.Tech and other students.">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f8fc;
+            color: #173b68;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .internship-page {
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .internship-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 75px 5% 85px;
+
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(58, 139, 220, 0.20),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #edf6ff,
+                    #ffffff
+                );
+        }
+
+        .internship-hero::before {
+            content: "";
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border: 1px solid rgba(23, 105, 194, 0.10);
+            border-radius: 50%;
+            right: -130px;
+            top: -150px;
+        }
+
+        .internship-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: #e7f3ff;
+            border: 1px solid #cfe4f7;
+            color: #1769c2;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .internship-hero h1 {
+            font-size: 44px;
+            line-height: 1.15;
+            color: #102d51;
+            margin-bottom: 15px;
+        }
+
+        .internship-hero h1 span {
+            color: #1769c2;
+        }
+
+        .internship-hero p {
+            max-width: 680px;
+            margin: auto;
+            color: #6d7d91;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .internship-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: -38px auto 70px;
+            position: relative;
+            z-index: 5;
+        }
+
+
+        /* =========================
+           SEARCH PANEL
+        ========================= */
+
+        .search-panel {
+            background: white;
+            border: 1px solid #e1eaf3;
+            border-radius: 18px;
+            padding: 22px;
+
+            box-shadow:
+                0 20px 45px rgba(25, 65, 105, 0.10);
+        }
+
+
+        /* =========================
+           SEARCH ROW
+        ========================= */
+
+        .search-row {
+            display: grid;
+            grid-template-columns:
+                2fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+        }
+
+        .search-input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #1769c2;
+        }
+
+        .search-box,
+        .filter-box {
+            height: 48px;
+            border: 1px solid #dce5ee;
+            border-radius: 10px;
+            background: #f9fbfd;
+            padding: 0 14px;
+            outline: none;
+            color: #33485f;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding-left: 43px;
+        }
+
+        .filter-box {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .search-box:focus,
+        .filter-box:focus {
+            background: white;
+            border-color: #1769c2;
+
+            box-shadow:
+                0 0 0 4px rgba(23,105,194,0.08);
+        }
+
+
+        /* =========================
+           FILTER LABELS
+        ========================= */
+
+        .filter-label {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            color: #718096;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+        }
+
+        .filter-group {
+            min-width: 0;
+        }
+
+
+        /* =========================
+           SEARCH BUTTON
+        ========================= */
+
+        .search-btn {
+            height: 48px;
+            padding: 0 20px;
+            border: none;
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #103d70,
+                    #1769c2
+                );
+
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+            white-space: nowrap;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 22px rgba(23,105,194,0.22);
+        }
+
+
+        /* =========================
+           FILTER ACTIONS
+        ========================= */
+
+        .filter-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+
+        /* =========================
+           NEAR ME
+        ========================= */
+
+        .near-me-btn {
+            height: 48px;
+            padding: 0 16px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+
+            border-radius: 10px;
+            background: #eef7ff;
+            border: 1px solid #cfe4f7;
+            color: #1769c2;
+
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: 0.25s;
+            white-space: nowrap;
+        }
+
+        .near-me-btn:hover {
+            background: #1769c2;
+            color: white;
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 18px rgba(23, 105, 194, 0.16);
+        }
+
+
+        /* =========================
+           FILTER INFO
+        ========================= */
+
+        .filter-info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-top: 15px;
+            padding-top: 15px;
+
+            border-top: 1px solid #edf1f5;
+
+            color: #718096;
+            font-size: 11px;
+        }
+
+        .filter-info strong {
+            color: #1769c2;
+        }
+
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+
+            padding: 5px 9px;
+            border-radius: 20px;
+
+            background: #edf6ff;
+            color: #1769c2;
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .clear-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+
+            padding: 6px 10px;
+            border-radius: 7px;
+
+            background: #f3f5f8;
+            border: 1px solid #dce5ee;
+
+            color: #617188;
+            text-decoration: none;
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .clear-btn:hover {
+            background: #e8edf3;
+            color: #173b68;
+        }
+
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        .internship-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            margin: 38px 0 25px;
+        }
+
+        .internship-heading h2 {
+            font-size: 27px;
+            color: #173b68;
+            margin: 0;
+        }
+
+        .internship-heading p {
+            color: #8290a3;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .opportunity-count {
+            color: #1769c2;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           GRID
+        ========================= */
+
+        .internship-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+            gap: 22px;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .internship-card {
+            position: relative;
+            background: white;
+
+            border: 1px solid #e1e9f2;
+            border-radius: 17px;
+
+            padding: 23px;
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .internship-card::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #1769c2,
+                    #56a4e8
+                );
+
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: 0.3s;
+        }
+
+        .internship-card:hover {
+            transform: translateY(-7px);
+
+            border-color: #c9dff3;
+
+            box-shadow:
+                0 18px 40px rgba(25,65,105,0.11);
+        }
+
+        .internship-card:hover::before {
+            transform: scaleX(1);
+        }
+
+
+        /* =========================
+           TOP BADGES
+        ========================= */
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+
+            margin-bottom: 18px;
+        }
+
+        .opportunity-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+
+            padding: 6px 9px;
+            border-radius: 20px;
+
+            background: #edf6ff;
+            color: #1769c2;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .4px;
+        }
+
+        .training-type {
+            background: #fff7e6;
+            color: #b77700;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+
+            padding: 6px 9px;
+            border-radius: 20px;
+
+            background: #eaf8f0;
+            color: #23804a;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            border: 1px solid #cdebd9;
+        }
+
+
+        /* =========================
+           COMPANY ICON
+        ========================= */
+
+        .company-icon {
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e6f2ff,
+                    #d7eaff
+                );
+
+            color: #1769c2;
+            font-size: 20px;
+
+            margin-bottom: 17px;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .internship-card h3 {
+            color: #173b68;
+            font-size: 18px;
+            line-height: 1.35;
+
+            margin-bottom: 7px;
+        }
+
+        .company-name {
+            color: #1769c2;
+            font-size: 12px;
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           TAGS
+        ========================= */
+
+        .internship-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            margin-bottom: 16px;
+        }
+
+        .internship-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+
+            padding: 6px 9px;
+            border-radius: 7px;
+
+            background: #f3f7fb;
+            color: #617188;
+
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .internship-tag i {
+            color: #1769c2;
+        }
+
+
+        /* =========================
+           AREA TAG
+        ========================= */
+
+        .area-tag {
+            background: #f5f1ff;
+            color: #7051b6;
+        }
+
+        .area-tag i {
+            color: #7051b6;
+        }
+
+
+        /* =========================
+           ADDRESS
+        ========================= */
+
+        .real-location {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+
+            padding: 10px 11px;
+            margin-bottom: 15px;
+
+            background: #f8fbfe;
+            border: 1px solid #e8eff6;
+            border-radius: 9px;
+
+            color: #64778d;
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        .real-location i {
+            color: #1769c2;
+            margin-top: 2px;
+        }
+
+
+        /* =========================
+           DESCRIPTION
+        ========================= */
+
+        .internship-description {
+            color: #718096;
+            font-size: 12px;
+            line-height: 1.65;
+
+            margin-bottom: 17px;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+
+            overflow: hidden;
+
+            min-height: 59px;
+        }
+
+
+        /* =========================
+           CARD FOOTER
+        ========================= */
+
+        .internship-card-footer {
+            padding-top: 15px;
+
+            border-top: 1px solid #edf1f5;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 12px;
+        }
+
+        .money-info {
+            display: flex;
+            flex-direction: column;
+            min-width: 95px;
+        }
+
+        .money-info span {
+            color: #98a4b2;
+            font-size: 9px;
+
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .money-info strong {
+            color: #278b51;
+            font-size: 12px;
+
+            margin-top: 3px;
+            line-height: 1.4;
+        }
+
+        .mode-info {
+            margin-top: 5px;
+            color: #718096;
+            font-size: 9px;
+        }
+
+
+        /* =========================
+           ACTIONS
+        ========================= */
+
+        .card-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .view-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+
+            padding: 9px 12px;
+            border-radius: 8px;
+
+            background: #e9f3ff;
+            color: #1769c2;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            text-decoration: none;
+
+            transition: 0.25s;
+
+            border: none;
+            cursor: pointer;
+
+            font-family: inherit;
+
+            white-space: nowrap;
+        }
+
+        .view-btn:hover {
+            background: #1769c2;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .save-btn {
+            background: #fff7e6;
+            color: #b77700;
+        }
+
+        .save-btn:hover {
+            background: #f3a712;
+            color: white;
+        }
+
+        .saved-btn {
+            background: #e8f8ef !important;
+            color: #23804a !important;
+            border: 1px solid #c9ecd8;
+        }
+
+        .saved-btn:hover {
+            background: #23804a !important;
+            color: white !important;
+        }
+
+
+        /* =========================
+           OFFICIAL WEBSITE
+        ========================= */
+
+        .official-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+
+            margin-top: 12px;
+            padding: 8px 11px;
+
+            border-radius: 8px;
+
+            background: white;
+            border: 1px solid #dce7f1;
+
+            color: #1769c2;
+
+            text-decoration: none;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            transition: .25s;
+        }
+
+        .official-link:hover {
+            background: #1769c2;
+            border-color: #1769c2;
+            color: white;
+        }
+
+
+        /* =========================
+           EMPTY STATE
+        ========================= */
+
+        .empty-state {
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            background: white;
+            border: 1px dashed #cad7e5;
+            border-radius: 18px;
+
+            padding: 65px 25px;
+        }
+
+        .empty-state i {
+            font-size: 42px;
+            color: #b6c8da;
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            color: #52677f;
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+
+        .empty-state p {
+            color: #8997a7;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .browse-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 10px 16px;
+
+            border-radius: 9px;
+
+            background: #1769c2;
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1150px) {
+
+            .search-row {
+                grid-template-columns:
+                    2fr 1fr 1fr;
+            }
+
+            .search-input-wrapper {
+                grid-column: 1 / -1;
+            }
+
+            .internship-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 850px) {
+
+            .search-row {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .search-input-wrapper {
+                grid-column: 1 / -1;
+            }
+
+            .filter-actions {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .internship-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .internship-hero {
+                padding:
+                    55px 5% 70px;
+            }
+
+            .internship-hero h1 {
+                font-size: 32px;
+            }
+
+            .internship-hero p {
+                font-size: 13px;
+            }
+
+            .internship-container {
+                width: 92%;
+                margin-top: -30px;
+            }
+
+            .search-row {
+                grid-template-columns: 1fr;
+            }
+
+            .search-input-wrapper {
+                grid-column: auto;
+            }
+
+            .filter-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .internship-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .internship-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .internship-card {
+                padding: 20px;
+            }
+
+            .internship-card-footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .card-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .card-actions .view-btn {
+                flex: 1;
+            }
+
+            .card-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="internship-page">
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="internship-hero">
+
+        <div class="internship-hero-content">
+
+            <div class="page-badge">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                Verified Career Opportunities
+
+            </div>
+
+
+            <h1>
+
+                Find the Right
+
+                <span>
+                    Internship
+                </span>
+
+                for Your Career
+
+            </h1>
+
+
+            <p>
+
+                Explore verified internships and training
+                opportunities based on your education,
+                field, location, skills and career goals.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="internship-container">
+
+
+        <!-- =========================
+             SEARCH / FILTER
+        ========================= -->
+
+        <div class="search-panel">
+
+
+            <form
+                action="{{ url_for('internships') }}"
+                method="GET"
+            >
+
+
+                <!-- SEARCH + FILTER GRID -->
+
+                <div class="search-row">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="search-input-wrapper">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            name="search"
+                            class="search-box"
+                            placeholder="Search internships, companies or skills..."
+                            value="{{ search }}"
+                        >
+
+                    </div>
+
+
+
+                    <!-- CITY -->
+
+                    <div class="filter-group">
+
+                        <label class="filter-label">
+
+                            <i class="fa-solid fa-city"></i>
+                            City
+
+                        </label>
+
+
+                        <select
+                            name="location"
+                            id="locationFilter"
+                            class="filter-box"
+                        >
+
+                            <option value="">
+                                All Cities
+                            </option>
+
+
+                            {% for item in locations %}
+
+                                <option
+                                    value="{{ item['city'] }}"
+                                    {% if selected_location == item['city'] %}
+                                        selected
+                                    {% endif %}
+                                >
+
+                                    📍 {{ item['city'] }}
+
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- AREA -->
+
+                    <div class="filter-group">
+
+                        <label class="filter-label">
+
+                            <i class="fa-solid fa-map-pin"></i>
+                            Area
+
+                        </label>
+
+
+                        <select
+                            name="area"
+                            id="areaFilter"
+                            class="filter-box"
+                        >
+
+                            <option value="">
+                                All Areas
+                            </option>
+
+
+                            {% for item in areas %}
+
+                                <option
+                                    value="{{ item['area'] }}"
+                                    {% if selected_area == item['area'] %}
+                                        selected
+                                    {% endif %}
+                                >
+
+                                    📌 {{ item['area'] }}
+
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- FIELD -->
+
+                    <div class="filter-group">
+
+                        <label class="filter-label">
+
+                            <i class="fa-solid fa-layer-group"></i>
+                            Field
+
+                        </label>
+
+
+                        <select
+                            name="field"
+                            id="fieldFilter"
+                            class="filter-box"
+                        >
+
+                            <option value="">
+                                All Fields
+                            </option>
+
+
+                            {% for item in fields %}
+
+                                <option
+                                    value="{{ item['field'] }}"
+                                    {% if selected_field == item['field'] %}
+                                        selected
+                                    {% endif %}
+                                >
+
+                                    {{ item['field'] }}
+
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- OPPORTUNITY TYPE -->
+
+                    <div class="filter-group">
+
+                        <label class="filter-label">
+
+                            <i class="fa-solid fa-briefcase"></i>
+                            Type
+
+                        </label>
+
+
+                        <select
+                            name="opportunity_type"
+                            id="typeFilter"
+                            class="filter-box"
+                        >
+
+                            <option value="">
+                                All Types
+                            </option>
+
+
+                            {% for item in opportunity_types %}
+
+                                <option
+                                    value="{{ item['opportunity_type'] }}"
+                                    {% if selected_opportunity_type == item['opportunity_type'] %}
+                                        selected
+                                    {% endif %}
+                                >
+
+                                    {{ item['opportunity_type'] }}
+
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ACTION BUTTONS -->
+
+                <div class="filter-actions">
+
+
+                    <!-- SEARCH BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="search-btn"
+                    >
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Search Opportunities
+
+                    </button>
+
+
+
+                    <!-- NEAR ME -->
+
+                    <a
+                        href="{{ url_for('near_me') }}"
+                        class="near-me-btn"
+                    >
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Find Opportunities Near Me
+
+                    </a>
+
+
+                </div>
+
+
+            </form>
+
+
+
+            <!-- ACTIVE FILTERS -->
+
+            {% if search or selected_field or selected_location or selected_area or selected_opportunity_type %}
+
+                <div class="filter-info">
+
+
+                    <strong>
+                        Active Filters:
+                    </strong>
+
+
+                    {% if search %}
+
+                        <span class="filter-chip">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            {{ search }}
+
+                        </span>
+
+                    {% endif %}
+
+
+
+                    {% if selected_location %}
+
+                        <span class="filter-chip">
+
+                            <i class="fa-solid fa-city"></i>
+
+                            {{ selected_location }}
+
+                        </span>
+
+                    {% endif %}
+
+
+
+                    {% if selected_area %}
+
+                        <span class="filter-chip">
+
+                            <i class="fa-solid fa-map-pin"></i>
+
+                            {{ selected_area }}
+
+                        </span>
+
+                    {% endif %}
+
+
+
+                    {% if selected_field %}
+
+                        <span class="filter-chip">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            {{ selected_field }}
+
+                        </span>
+
+                    {% endif %}
+
+
+
+                    {% if selected_opportunity_type %}
+
+                        <span class="filter-chip">
+
+                            <i class="fa-solid fa-briefcase"></i>
+
+                            {{ selected_opportunity_type }}
+
+                        </span>
+
+                    {% endif %}
+
+
+
+                    <a
+                        href="{{ url_for('internships') }}"
+                        class="clear-btn"
+                    >
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                        Clear All
+
+                    </a>
+
+
+                </div>
+
+            {% endif %}
+
+
+        </div>
+
+
+
+        <!-- =========================
+             HEADING
+        ========================= -->
+
+        <div class="internship-heading">
+
+            <div>
+
+                <h2>
+                    Latest Opportunities
+                </h2>
+
+                <p>
+                    Verified internships and training opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="opportunity-count">
+
+                {{ internships|length }}
+
+                Opportunities
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             CARDS
+        ========================= -->
+
+        <div class="internship-grid">
+
+
+            {% if internships %}
+
+
+                {% for internship in internships %}
+
+
+                    <article class="internship-card">
+
+
+                        <!-- TOP BADGES -->
+
+                        <div class="card-top">
+
+
+                            {% if internship["opportunity_type"] == "Training" %}
+
+                                <span class="opportunity-type training-type">
+
+                                    <i class="fa-solid fa-graduation-cap"></i>
+
+                                    Training
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="opportunity-type">
+
+                                    <i class="fa-solid fa-briefcase"></i>
+
+                                    Internship
+
+                                </span>
+
+                            {% endif %}
+
+
+
+                            {% if internship["verification_status"] == "Verified" %}
+
+                                <span class="verified-badge">
+
+                                    <i class="fa-solid fa-circle-check"></i>
+
+                                    Verified
+
+                                </span>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+
+                        <!-- COMPANY ICON -->
+
+                        <div class="company-icon">
+
+                            <i class="fa-solid fa-building"></i>
+
+                        </div>
+
+
+
+                        <!-- TITLE -->
+
+                        <h3>
+
+                            {{ internship["title"] }}
+
+                        </h3>
+
+
+
+                        <!-- COMPANY -->
+
+                        <div class="company-name">
+
+                            <i class="fa-solid fa-building-circle-check"></i>
+
+                            {{ internship["company"] }}
+
+                        </div>
+
+
+
+                        <!-- TAGS -->
+
+                        <div class="internship-tags">
+
+
+                            {% if internship["field"] %}
+
+                                <span class="internship-tag">
+
+                                    <i class="fa-solid fa-layer-group"></i>
+
+                                    {{ internship["field"] }}
+
+                                </span>
+
+                            {% endif %}
+
+
+
+                            {% if internship["city"] %}
+
+                                <span class="internship-tag">
+
+                                    <i class="fa-solid fa-city"></i>
+
+                                    {{ internship["city"] }}
+
+                                </span>
+
+                            {% elif internship["location"] %}
+
+                                <span class="internship-tag">
+
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    {{ internship["location"] }}
+
+                                </span>
+
+                            {% endif %}
+
+
+
+                            {% if internship["area"] %}
+
+                                <span class="internship-tag area-tag">
+
+                                    <i class="fa-solid fa-map-pin"></i>
+
+                                    {{ internship["area"] }}
+
+                                </span>
+
+                            {% endif %}
+
+
+
+                            {% if internship["duration"] %}
+
+                                <span class="internship-tag">
+
+                                    <i class="fa-solid fa-clock"></i>
+
+                                    {{ internship["duration"] }}
+
+                                </span>
+
+                            {% endif %}
+
+
+
+                            {% if internship["mode"] %}
+
+                                <span class="internship-tag">
+
+                                    <i class="fa-solid fa-laptop"></i>
+
+                                    {{ internship["mode"] }}
+
+                                </span>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+
+                        <!-- REAL ADDRESS -->
+
+                        {% if internship["address"] %}
+
+                            <div class="real-location">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                <span>
+
+                                    {{ internship["address"] }}
+
+                                </span>
+
+                            </div>
+
+                        {% endif %}
+
+
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="internship-description">
+
+                            {{ internship["description"] }}
+
+                        </p>
+
+
+
+                        <!-- OFFICIAL WEBSITE -->
+
+                        {% if internship["official_website"] %}
+
+                            <a
+                                href="{{ internship['official_website'] }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="official-link"
+                            >
+
+                                <i class="fa-solid fa-globe"></i>
+
+                                Official Website
+
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                            </a>
+
+                        {% endif %}
+
+
+
+                        <!-- FOOTER -->
+
+                        <div class="internship-card-footer">
+
+
+                            <!-- MONEY -->
+
+                            <div class="money-info">
+
+
+                                {% if internship["opportunity_type"] == "Training" %}
+
+                                    <span>
+                                        Course Fee
+                                    </span>
+
+                                    <strong>
+
+                                        {{ internship["fee"] or "Not specified" }}
+
+                                    </strong>
+
+                                {% else %}
+
+                                    <span>
+                                        Stipend
+                                    </span>
+
+                                    <strong>
+
+                                        {{ internship["stipend"] or "Not specified" }}
+
+                                    </strong>
+
+                                {% endif %}
+
+
+
+                                {% if internship["mode"] %}
+
+                                    <div class="mode-info">
+
+                                        <i class="fa-solid fa-laptop"></i>
+
+                                        {{ internship["mode"] }}
+
+                                    </div>
+
+                                {% endif %}
+
+
+                            </div>
+
+
+
+                            <!-- ACTIONS -->
+
+                            <div class="card-actions">
+
+
+                                <!-- SAVE -->
+
+                                {% if session.get("student_id") %}
+
+
+                                    {% if internship["id"] in saved_ids %}
+
+
+                                        <form
+                                            action="{{ url_for('unsave_internship', internship_id=internship['id']) }}"
+                                            method="POST"
+                                            style="margin: 0;"
+                                        >
+
+                                            <button
+                                                type="submit"
+                                                class="view-btn save-btn saved-btn"
+                                                title="Remove from Saved"
+                                            >
+
+                                                <i class="fa-solid fa-bookmark"></i>
+
+                                                Saved
+
+                                            </button>
+
+                                        </form>
+
+
+                                    {% else %}
+
+
+                                        <form
+                                            action="{{ url_for('save_internship', internship_id=internship['id']) }}"
+                                            method="POST"
+                                            style="margin: 0;"
+                                        >
+
+                                            <button
+                                                type="submit"
+                                                class="view-btn save-btn"
+                                                title="Save Opportunity"
+                                            >
+
+                                                <i class="fa-regular fa-bookmark"></i>
+
+                                                Save
+
+                                            </button>
+
+                                        </form>
+
+
+                                    {% endif %}
+
+
+                                {% else %}
+
+
+                                    <a
+                                        href="{{ url_for('login') }}"
+                                        class="view-btn save-btn"
+                                        title="Login to Save"
+                                    >
+
+                                        <i class="fa-regular fa-bookmark"></i>
+
+                                        Save
+
+                                    </a>
+
+
+                                {% endif %}
+
+
+
+                                <!-- DETAILS -->
+
+                                <a
+                                    href="{{ url_for('internship_details', id=internship['id']) }}"
+                                    class="view-btn"
+                                >
+
+                                    View
+
+                                    <i class="fa-solid fa-arrow-right"></i>
+
+                                </a>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </article>
+
+
+                {% endfor %}
+
+
+            {% else %}
+
+
+                <!-- EMPTY STATE -->
+
+                <div class="empty-state">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <h3>
+                        No opportunities found
+                    </h3>
+
+                    <p>
+                        Try changing your search, city,
+                        area, field or opportunity type filter.
+                    </p>
+
+                    <a
+                        href="{{ url_for('internships') }}"
+                        class="browse-btn"
+                    >
+
+                        <i class="fa-solid fa-rotate-left"></i>
+
+                        View All Opportunities
+
+                    </a>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     CITY → AREA / FIELD / TYPE DYNAMIC FILTER
+===================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cityFilter =
+        document.getElementById("locationFilter");
+
+    const areaFilter =
+        document.getElementById("areaFilter");
+
+    const fieldFilter =
+        document.getElementById("fieldFilter");
+
+    const typeFilter =
+        document.getElementById("typeFilter");
+
+
+    /* Safety check */
+
+    if (
+        !cityFilter ||
+        !areaFilter ||
+        !fieldFilter ||
+        !typeFilter
+    ) {
+        return;
+    }
+
+
+    /* ==========================================
+       CREATE SELECT OPTIONS
+    ========================================== */
+
+    function setOptions(
+        selectElement,
+        defaultText,
+        values,
+        selectedValue = ""
+    ) {
+
+        selectElement.innerHTML = "";
+
+
+        const defaultOption =
+            document.createElement("option");
+
+        defaultOption.value = "";
+
+        defaultOption.textContent =
+            defaultText;
+
+        selectElement.appendChild(
+            defaultOption
+        );
+
+
+        values.forEach(function (value) {
+
+            const option =
+                document.createElement("option");
+
+            option.value = value;
+
+            option.textContent = value;
+
+
+            if (value === selectedValue) {
+
+                option.selected = true;
+
+            }
+
+
+            selectElement.appendChild(option);
+
+        });
+
+    }
+
+
+
+    /* ==========================================
+       LOAD CITY-SPECIFIC FILTERS
+    ========================================== */
+
+    async function loadCityFilters(
+        city,
+        keepSelected = false
+    ) {
+
+        try {
+
+            const response = await fetch(
+
+                "{{ url_for('filter_options') }}?city=" +
+                encodeURIComponent(city)
+
+            );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to load filter options"
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            /*
+             * Agar page reload ke baad city already
+             * selected hai to old values preserve karenge.
+             */
+
+            const oldArea =
+                keepSelected
+                    ? areaFilter.value
+                    : "";
+
+
+            const oldField =
+                keepSelected
+                    ? fieldFilter.value
+                    : "";
+
+
+            const oldType =
+                keepSelected
+                    ? typeFilter.value
+                    : "";
+
+
+            /* AREA */
+
+            setOptions(
+
+                areaFilter,
+
+                "All Areas",
+
+                data.areas || [],
+
+                oldArea
+
+            );
+
+
+            /* FIELD */
+
+            setOptions(
+
+                fieldFilter,
+
+                "All Fields",
+
+                data.fields || [],
+
+                oldField
+
+            );
+
+
+            /* OPPORTUNITY TYPE */
+
+            setOptions(
+
+                typeFilter,
+
+                "All Types",
+
+                data.opportunity_types || [],
+
+                oldType
+
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "City filter loading error:",
+                error
+            );
+
+        }
+
+    }
+
+
+
+    /* ==========================================
+       CITY CHANGE
+    ========================================== */
+
+    cityFilter.addEventListener(
+        "change",
+        function () {
+
+            const city =
+                this.value;
+
+
+            /*
+             * City change hote hi
+             * purane Area/Field/Type ko reset
+             * kar denge.
+             */
+
+            areaFilter.value = "";
+
+            fieldFilter.value = "";
+
+            typeFilter.value = "";
+
+
+            loadCityFilters(
+                city,
+                false
+            );
+
+        }
+    );
+
+
+
+    /* ==========================================
+       PAGE LOAD
+    ========================================== */
+
+    const selectedCity =
+        cityFilter.value;
+
+
+    /*
+     * Agar URL me already city selected hai,
+     * to page load hote hi us city ke
+     * Area / Field / Type load honge.
+     */
+
+    if (selectedCity) {
+
+        loadCityFilters(
+            selectedCity,
+            true
+        );
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+career.db
+.env
+venv/
+.venv/

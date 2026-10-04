@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | Career & Internship Network</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .profile-navbar {
+            background: #002b5b;
+            height: 74px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0, 43, 91, 0.15);
+        }
+
+        .profile-nav-container {
+            width: 92%;
+            max-width: 1250px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-logo {
+            text-decoration: none;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-logo-icon {
+            width: 43px;
+            height: 43px;
+
+            border-radius: 12px;
+
+            background: #ffd43b;
+            color: #002b5b;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+        }
+
+        .profile-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .profile-logo-text span {
+            font-size: 12px;
+            color: #cbd8e8;
+        }
+
+        .profile-logo-text strong {
+            font-size: 17px;
+            color: white;
+        }
+
+        .profile-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .profile-nav-links a {
+            text-decoration: none;
+            color: #dce7f3;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.25s;
+        }
+
+        .profile-nav-links a:hover {
+            color: #ffd43b;
+        }
+
+        .dashboard-btn {
+            text-decoration: none;
+            background: white;
+            color: #002b5b;
+
+            padding: 10px 17px;
+            border-radius: 9px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+        .dashboard-btn:hover {
+            background: #ffd43b;
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .profile-page {
+            width: 92%;
+            max-width: 1180px;
+            margin: 42px auto 70px;
+        }
+
+
+        /* =========================
+           PAGE HEADER
+        ========================= */
+
+        .profile-header {
+            margin-bottom: 28px;
+        }
+
+        .profile-header .small-title {
+            color: #1769aa;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .profile-header h1 {
+            margin: 7px 0 7px;
+            font-size: 32px;
+            color: #102a43;
+        }
+
+        .profile-header p {
+            margin: 0;
+            color: #6b778c;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           LAYOUT
+        ========================= */
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 310px 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+
+        /* =========================
+           LEFT CARD
+        ========================= */
+
+        .profile-summary {
+            background: white;
+            border-radius: 18px;
+            padding: 28px 22px;
+
+            border: 1px solid #e5eaf1;
+
+            box-shadow: 0 10px 30px rgba(16, 42, 67, 0.07);
+
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 92px;
+            height: 92px;
+
+            margin: 0 auto 16px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                #002b5b,
+                #1769aa
+            );
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 34px;
+            font-weight: 800;
+
+            box-shadow: 0 10px 25px rgba(0, 43, 91, 0.2);
+        }
+
+        .profile-summary h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #102a43;
+        }
+
+        .profile-email {
+            margin: 7px 0 22px;
+            color: #7b8794;
+            font-size: 13px;
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           COMPLETION
+        ========================= */
+
+        .completion-box {
+            text-align: left;
+
+            background: #f7f9fc;
+            border-radius: 13px;
+
+            padding: 17px;
+        }
+
+        .completion-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 10px;
+        }
+
+        .completion-top span:first-child {
+            font-size: 13px;
+            font-weight: 700;
+            color: #34495e;
+        }
+
+        .completion-percent {
+            font-size: 14px;
+            font-weight: 800;
+            color: #1769aa;
+        }
+
+        .progress-bar {
+            height: 8px;
+            width: 100%;
+
+            background: #e1e7ef;
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 75%;
+
+            background: linear-gradient(
+                90deg,
+                #1769aa,
+                #00a8cc
+            );
+
+            border-radius: 20px;
+        }
+
+        .completion-help {
+            margin-top: 9px;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #7b8794;
+        }
+
+
+        /* =========================
+           PROFILE MENU
+        ========================= */
+
+        .profile-side-links {
+            margin-top: 22px;
+            text-align: left;
+        }
+
+        .profile-side-links a {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            padding: 11px 10px;
+
+            text-decoration: none;
+            color: #52606d;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            border-radius: 9px;
+
+            transition: 0.2s;
+        }
+
+        .profile-side-links a:hover {
+            background: #eef5fb;
+            color: #1769aa;
+        }
+
+        .profile-side-links i {
+            width: 18px;
+            text-align: center;
+        }
+
+
+        /* =========================
+           FORM CARD
+        ========================= */
+
+        .profile-form-card {
+            background: white;
+            border-radius: 18px;
+
+            border: 1px solid #e5eaf1;
+
+            box-shadow: 0 10px 30px rgba(16, 42, 67, 0.07);
+
+            padding: 32px;
+        }
+
+        .form-card-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            gap: 20px;
+
+            padding-bottom: 22px;
+            margin-bottom: 25px;
+
+            border-bottom: 1px solid #edf0f4;
+        }
+
+        .form-card-heading h2 {
+            margin: 0 0 6px;
+            font-size: 21px;
+            color: #102a43;
+        }
+
+        .form-card-heading p {
+            margin: 0;
+            font-size: 13px;
+            color: #7b8794;
+        }
+
+        .edit-icon {
+            width: 40px;
+            height: 40px;
+
+            border-radius: 10px;
+
+            background: #eef5fb;
+            color: #1769aa;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* =========================
+           FLASH
+        ========================= */
+
+        .flash-messages {
+            margin-bottom: 20px;
+        }
+
+        .flash-message {
+            padding: 12px 14px;
+            border-radius: 9px;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .flash-message.success {
+            background: #eaf8ef;
+            color: #18794e;
+            border: 1px solid #c8ecd8;
+        }
+
+        .flash-message.error,
+        .flash-message.danger {
+            background: #fff0f0;
+            color: #c0392b;
+            border: 1px solid #f3cccc;
+        }
+
+
+        /* =========================
+           FORM GRID
+        ========================= */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+
+            font-size: 13px;
+            font-weight: 700;
+            color: #34495e;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box > i {
+            position: absolute;
+
+            left: 14px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #8a98a8;
+
+            font-size: 14px;
+
+            pointer-events: none;
+        }
+
+        .input-box input,
+        .input-box select {
+            width: 100%;
+
+            height: 48px;
+
+            border: 1px solid #dce3eb;
+            border-radius: 10px;
+
+            padding: 0 14px 0 42px;
+
+            font-family: "Inter", sans-serif;
+            font-size: 13px;
+
+            color: #243b53;
+
+            background: #fbfcfe;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        .input-box select {
+            appearance: auto;
+            cursor: pointer;
+        }
+
+        .input-box input:focus,
+        .input-box select:focus {
+            border-color: #1769aa;
+
+            background: white;
+
+            box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.10);
+        }
+
+        .input-box input[readonly] {
+            background: #f1f4f7;
+            color: #7b8794;
+            cursor: not-allowed;
+        }
+
+        .field-help {
+            margin-top: 6px;
+            font-size: 11px;
+            color: #8a98a8;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .form-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            gap: 12px;
+
+            margin-top: 28px;
+            padding-top: 22px;
+
+            border-top: 1px solid #edf0f4;
+        }
+
+        .cancel-btn {
+            text-decoration: none;
+
+            height: 46px;
+
+            padding: 0 19px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+
+            color: #52606d;
+            background: #f1f4f7;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .cancel-btn:hover {
+            background: #e5eaf0;
+        }
+
+        .save-btn {
+            border: none;
+
+            height: 46px;
+
+            padding: 0 21px;
+
+            border-radius: 9px;
+
+            background: #ffd43b;
+            color: #102a43;
+
+            font-family: "Inter", sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            transition: 0.2s;
+        }
+
+        .save-btn:hover {
+            background: #f7c900;
+            transform: translateY(-1px);
+            box-shadow: 0 7px 16px rgba(247, 201, 0, 0.22);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-summary {
+                text-align: center;
+            }
+
+            .profile-side-links {
+                display: none;
+            }
+
+            .profile-nav-links {
+                display: none;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .profile-page {
+                width: 94%;
+                margin-top: 28px;
+            }
+
+            .profile-header h1 {
+                font-size: 26px;
+            }
+
+            .profile-form-card {
+                padding: 22px 17px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .form-group.full-width {
+                grid-column: auto;
+            }
+
+            .form-actions {
+                flex-direction: column-reverse;
+            }
+
+            .save-btn,
+            .cancel-btn {
+                width: 100%;
+            }
+
+            .profile-navbar {
+                height: 68px;
+            }
+
+            .profile-logo-text strong {
+                font-size: 15px;
+            }
+
+            .profile-logo-icon {
+                width: 39px;
+                height: 39px;
+            }
+
+        }
+
+        /* =====================================================
+   PROFESSIONAL BACK BUTTON
+===================================================== */
+
+.profile-back-wrap {
+    width: 92%;
+    max-width: 1180px;
+    margin: 22px auto 0;
+}
+
+.profile-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    min-height: 40px;
+    padding: 0 15px;
+
+    background: #ffffff;
+    color: #36546f;
+
+    border: 1px solid #d5e2ed;
+    border-radius: 8px;
+
+    box-shadow: 0 3px 10px rgba(8, 43, 85, 0.06);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: all 0.22s ease;
+}
+
+.profile-back-btn i {
+    color: #1769c2;
+    font-size: 11px;
+}
+
+.profile-back-btn:hover {
+    color: #0b5cab;
+    background: #f2f7fb;
+    border-color: #b9cfe2;
+
+    transform: translateX(-2px);
+
+    box-shadow: 0 6px 15px rgba(8, 43, 85, 0.09);
+}
+
+@media (max-width: 650px) {
+
+    .profile-back-wrap {
+        width: 94%;
+        margin-top: 16px;
+    }
+
+    .profile-back-btn {
+        min-height: 38px;
+        padding: 0 12px;
+        font-size: 11px;
+    }
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SAME PROFESSIONAL NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+
+        <a href="{{ url_for('home') }}"
+           class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="logo-text">
+
+                <span>
+                    Career &
+                </span>
+
+                <strong>
+                    Internship Network
+                </strong>
+
+            </div>
+
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav class="nav-links">
+
+            <a href="{{ url_for('home') }}">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="{{ url_for('internships') }}">
+                <i class="fa-solid fa-briefcase"></i>
+                Internships
+            </a>
+
+            <a href="{{ url_for('institutes') }}">
+                <i class="fa-solid fa-building-columns"></i>
+                Institutes
+            </a>
+
+            <a href="{{ url_for('career') }}">
+                <i class="fa-solid fa-compass"></i>
+                Career Guide
+            </a>
+
+            <a href="{{ url_for('decision_assistant') }}">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Decision Assistant
+            </a>
+
+        </nav>
+
+
+        <!-- DASHBOARD -->
+
+        <div class="nav-actions">
+
+            <a href="{{ url_for('dashboard') }}"
+               class="login-btn">
+
+                <i class="fa-solid fa-gauge-high"></i>
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- MOBILE NAV -->
+
+    <div class="mobile-nav"
+         id="mobileNav">
+
+        <a href="{{ url_for('home') }}">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+
+        <a href="{{ url_for('internships') }}">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Internships
+
+        </a>
+
+
+        <a href="{{ url_for('institutes') }}">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            Institutes
+
+        </a>
+
+
+        <a href="{{ url_for('career') }}">
+
+            <i class="fa-solid fa-compass"></i>
+
+            Career Guide
+
+        </a>
+
+
+        <a href="{{ url_for('decision_assistant') }}">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Decision Assistant
+
+        </a>
+
+
+        <a href="{{ url_for('dashboard') }}">
+
+            <i class="fa-solid fa-gauge-high"></i>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="{{ url_for('logout') }}">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </a>
+
+    </div>
+
+</header>
+
+<!-- =========================
+     MAIN PROFILE
+========================= -->
+
+<main class="profile-page">
+
+
+    <!-- HEADER -->
+
+    <div class="profile-header">
+
+        <span class="small-title">
+            Student Account
+        </span>
+
+        <h1>
+            My Profile
+        </h1>
+
+        <p>
+            Keep your profile updated to get more relevant internship
+            and career recommendations.
+        </p>
+
+    </div>
+
+
+
+    <div class="profile-layout">
+
+
+        <!-- =========================
+             LEFT SUMMARY
+        ========================= -->
+
+        <aside class="profile-summary">
+
+            <div class="profile-avatar">
+
+                {{ student['name'][0]|upper }}
+
+            </div>
+
+
+            <h2>
+                {{ student['name'] }}
+            </h2>
+
+            <div class="profile-email">
+                {{ student['email'] }}
+            </div>
+
+
+            <div class="completion-box">
+
+                <div class="completion-top">
+
+                    <span>
+                        Profile Completion
+                    </span>
+
+                    <span class="completion-percent">
+                        75%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+
+                <div class="completion-help">
+
+                    Complete your education, branch, semester and
+                    city details to improve recommendations.
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-side-links">
+
+                <a href="/dashboard">
+
+                    <i class="fa-solid fa-gauge-high"></i>
+
+                    Dashboard
+
+                </a>
+
+
+                <a href="/saved-internships">
+
+                    <i class="fa-regular fa-bookmark"></i>
+
+                    Saved Internships
+
+                </a>
+
+
+                <a href="/internships">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Find Internships
+
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+             FORM
+        ========================= -->
+
+        <section class="profile-form-card">
+
+
+            <div class="form-card-heading">
+
+                <div>
+
+                    <h2>
+                        Personal & Academic Information
+                    </h2>
+
+                    <p>
+                        Update your information below.
+                    </p>
+
+                </div>
+
+
+                <div class="edit-icon">
+
+                    <i class="fa-solid fa-user-pen"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FLASH -->
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+
+                {% if messages %}
+
+                    <div class="flash-messages">
+
+                        {% for category, message in messages %}
+
+                            <div class="flash-message {{ category }}">
+
+                                {{ message }}
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+            {% endwith %}
+
+
+
+            <!-- FORM -->
+
+            <form action="/profile" method="POST">
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value="{{ student['name'] }}"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                value="{{ student['email'] }}"
+                                readonly
+                            >
+
+                        </div>
+
+                        <span class="field-help">
+                            Email cannot be changed from this page.
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- EDUCATION -->
+
+                    <div class="form-group">
+
+                        <label for="education">
+                            Education
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-graduation-cap"></i>
+
+                            <select
+                                id="education"
+                                name="education"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Education
+                                </option>
+
+                                <option
+                                    value="Diploma/Polytechnic"
+                                    {% if student['education'] == 'Diploma/Polytechnic' %}selected{% endif %}
+                                >
+                                    Diploma / Polytechnic
+                                </option>
+
+                                <option
+                                    value="B.Tech/B.E."
+                                    {% if student['education'] == 'B.Tech/B.E.' %}selected{% endif %}
+                                >
+                                    B.Tech / B.E.
+                                </option>
+
+                                <option
+                                    value="BCA"
+                                    {% if student['education'] == 'BCA' %}selected{% endif %}
+                                >
+                                    BCA
+                                </option>
+
+                                <option
+                                    value="B.Sc"
+                                    {% if student['education'] == 'B.Sc' %}selected{% endif %}
+                                >
+                                    B.Sc
+                                </option>
+
+                                <option
+                                    value="ITI"
+                                    {% if student['education'] == 'ITI' %}selected{% endif %}
+                                >
+                                    ITI
+                                </option>
+
+                                <option
+                                    value="Other"
+                                    {% if student['education'] == 'Other' %}selected{% endif %}
+                                >
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BRANCH -->
+
+                    <div class="form-group">
+
+                        <label for="branch">
+                            Branch / Stream
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-code"></i>
+
+                            <input
+                                type="text"
+                                id="branch"
+                                name="branch"
+                                value="{{ student['branch'] or '' }}"
+                                placeholder="e.g. Computer Science"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- YEAR -->
+
+                    <div class="form-group">
+
+                        <label for="year">
+                            Year / Semester
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-calendar-days"></i>
+
+                            <input
+                                type="text"
+                                id="year"
+                                name="year"
+                                value="{{ student['year'] or '' }}"
+                                placeholder="e.g. 3rd Semester"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CITY -->
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                value="{{ student['city'] or '' }}"
+                                placeholder="e.g. Jamshedpur"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="form-actions">
+
+                    <a href="/dashboard" class="cancel-btn">
+
+                        Cancel
+
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Changes
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Career & Internship Network</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body class="auth-page">
+
+<div class="auth-container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="auth-left">
+
+        <div class="auth-brand">
+
+            <div class="auth-logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div>
+                <span>Career &</span>
+                <strong>Internship Network</strong>
+            </div>
+
+        </div>
+
+
+        <div class="auth-message">
+
+            <span class="auth-small-title">
+                START YOUR JOURNEY
+            </span>
+
+            <h1>
+                Build your skills.
+                <span>Shape your future.</span>
+            </h1>
+
+            <p>
+                Create your student profile and discover internships,
+                career paths and opportunities that match your goals.
+            </p>
+
+            <div class="auth-points">
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Personalized internship discovery
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Career and skill guidance
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Opportunities based on your location
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="auth-right">
+
+        <div class="auth-card signup-card">
+
+            <div class="auth-card-heading">
+
+                <div class="mobile-auth-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <h2>Create Your Account</h2>
+
+                <p>
+                    Join students building their career with us.
+                </p>
+
+            </div>
+
+
+            <form action="/signup" method="POST">
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EDUCATION -->
+
+                <div class="form-group">
+
+                    <label for="education">
+                        Education
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        <select id="education"
+                                name="education"
+                                required>
+
+                            <option value="">
+                                Select your education
+                            </option>
+
+                            <option value="Diploma">
+                                Diploma / Polytechnic
+                            </option>
+
+                            <option value="B.Tech">
+                                B.Tech / B.E.
+                            </option>
+
+                            <option value="BCA">
+                                BCA
+                            </option>
+
+                            <option value="B.Sc">
+                                B.Sc
+                            </option>
+
+                            <option value="ITI">
+                                ITI
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BRANCH -->
+
+                <div class="form-group">
+
+                    <label for="branch">
+                        Branch / Stream
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-code-branch"></i>
+
+                        <input
+                            type="text"
+                            id="branch"
+                            name="branch"
+                            placeholder="e.g. Computer Science">
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="auth-submit">
+
+                    Create Account
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <p class="auth-bottom-text">
+
+                Already have an account?
+
+                <a href="/login">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

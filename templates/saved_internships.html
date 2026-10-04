@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Saved Internships | Career & Internship Network
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        body {
+            background: #f5f8fc;
+            font-family: "Inter", sans-serif;
+            color: #173b68;
+        }
+
+        .saved-page {
+            min-height: 100vh;
+            padding: 60px 5% 80px;
+        }
+
+        .saved-header {
+            max-width: 1200px;
+            margin: 0 auto 35px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            text-decoration: none;
+            color: #1769c2;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .saved-header h1 {
+            margin: 0 0 10px;
+
+            color: #102d51;
+
+            font-size: 38px;
+        }
+
+        .saved-header p {
+            margin: 0;
+
+            color: #718096;
+
+            font-size: 14px;
+        }
+
+        .saved-grid {
+
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .saved-card {
+
+            background: white;
+
+            border: 1px solid #e1e9f2;
+
+            border-radius: 17px;
+
+            padding: 23px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 8px 25px rgba(25,65,105,0.05);
+        }
+
+        .saved-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 40px rgba(25,65,105,0.11);
+
+            border-color: #c9dff3;
+        }
+
+        .saved-icon {
+
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e6f2ff,
+                    #d7eaff
+                );
+
+            color: #1769c2;
+
+            font-size: 20px;
+
+            margin-bottom: 17px;
+        }
+
+        .saved-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            padding: 5px 9px;
+
+            border-radius: 20px;
+
+            background: #e9f8ef;
+
+            color: #278b51;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+        }
+
+        .saved-card h3 {
+
+            margin: 0 0 7px;
+
+            color: #173b68;
+
+            font-size: 18px;
+
+            line-height: 1.35;
+        }
+
+        .company-name {
+
+            color: #1769c2;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+        .saved-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-bottom: 17px;
+        }
+
+        .saved-tag {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            padding: 6px 9px;
+
+            border-radius: 7px;
+
+            background: #f3f7fb;
+
+            color: #617188;
+
+            font-size: 10px;
+
+            font-weight: 600;
+        }
+
+        .saved-tag i {
+
+            color: #1769c2;
+        }
+
+        .saved-description {
+
+            color: #718096;
+
+            font-size: 12px;
+
+            line-height: 1.65;
+
+            margin-bottom: 19px;
+
+            display: -webkit-box;
+
+            -webkit-line-clamp: 3;
+
+            -webkit-box-orient: vertical;
+
+            overflow: hidden;
+        }
+
+        .saved-footer {
+
+            padding-top: 15px;
+
+            border-top: 1px solid #edf1f5;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+        .stipend {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .stipend span {
+
+            color: #98a4b2;
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+        }
+
+        .stipend strong {
+
+            color: #278b51;
+
+            font-size: 13px;
+
+            margin-top: 3px;
+        }
+
+        .view-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 9px 13px;
+
+            border-radius: 8px;
+
+            background: #e9f3ff;
+
+            color: #1769c2;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-decoration: none;
+
+            transition: 0.25s;
+        }
+
+        .view-btn:hover {
+
+            background: #1769c2;
+
+            color: white;
+        }
+
+        .empty-state {
+
+            max-width: 650px;
+
+            margin: 30px auto 0;
+
+            background: white;
+
+            border: 1px dashed #cad7e5;
+
+            border-radius: 18px;
+
+            padding: 65px 25px;
+
+            text-align: center;
+        }
+
+        .empty-state i {
+
+            font-size: 45px;
+
+            color: #b6c8da;
+
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+
+            color: #52677f;
+
+            font-size: 19px;
+
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+
+            color: #8997a7;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .browse-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 11px 17px;
+
+            border-radius: 9px;
+
+            background: #1769c2;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .browse-btn:hover {
+
+            background: #103d70;
+        }
+
+
+        @media (max-width: 1000px) {
+
+            .saved-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .saved-page {
+
+                padding:
+                    45px 5% 60px;
+            }
+
+            .saved-header h1 {
+
+                font-size: 30px;
+            }
+
+            .saved-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .saved-card {
+
+                padding: 20px;
+            }
+
+        }
+
+        .saved-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.remove-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 9px 13px;
+
+    border-radius: 8px;
+
+    background: #fff1f1;
+    color: #d64545;
+
+    border: 1px solid #f3d1d1;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.remove-btn:hover {
+    background: #d64545;
+    color: white;
+    border-color: #d64545;
+}
+
+@media (max-width: 500px) {
+
+    .saved-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .saved-actions {
+        width: 100%;
+    }
+
+    .saved-actions .view-btn,
+    .saved-actions .remove-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="saved-page">
+
+
+    <!-- HEADER -->
+
+    <div class="saved-header">
+
+        <a href="{{ url_for('dashboard') }}"
+           class="back-link">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Dashboard
+
+        </a>
+
+
+        <h1>
+            Saved Internships
+        </h1>
+
+
+        <p>
+            Internships you saved for later.
+            Review them and apply when you are ready.
+        </p>
+
+    </div>
+
+
+    <!-- SAVED INTERNSHIPS -->
+
+    {% if saved_internships %}
+
+        <div class="saved-grid">
+
+
+            {% for internship in saved_internships %}
+
+                <article class="saved-card">
+
+
+                    <div class="saved-icon">
+
+                        <i class="fa-solid fa-bookmark"></i>
+
+                    </div>
+
+
+                    <div class="saved-badge">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Saved Internship
+
+                    </div>
+
+
+                    <h3>
+
+                        {{ internship["title"] }}
+
+                    </h3>
+
+
+                    <div class="company-name">
+
+                        <i class="fa-solid fa-building"></i>
+
+                        {{ internship["company"] }}
+
+                    </div>
+
+
+                    <div class="saved-tags">
+
+
+                        <span class="saved-tag">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            {{ internship["field"] }}
+
+                        </span>
+
+
+                        <span class="saved-tag">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            {{ internship["location"] }}
+
+                        </span>
+
+
+                        <span class="saved-tag">
+
+                            <i class="fa-solid fa-clock"></i>
+
+                            {{ internship["duration"] }}
+
+                        </span>
+
+
+                    </div>
+
+
+                    <p class="saved-description">
+
+                        {{ internship["description"] }}
+
+                    </p>
+
+
+                 <div class="saved-footer">
+
+    <div class="stipend">
+
+        <span>
+            Stipend
+        </span>
+
+        <strong>
+            {{ internship["stipend"] }}
+        </strong>
+
+    </div>
+
+
+    <div class="saved-actions">
+
+        <!-- VIEW DETAILS -->
+
+        <a
+            href="{{ url_for('internship_details', id=internship['id']) }}"
+            class="view-btn">
+
+            <i class="fa-solid fa-eye"></i>
+
+            View
+
+        </a>
+
+
+        <!-- REMOVE SAVED -->
+
+        <form
+            action="{{ url_for('unsave_internship', internship_id=internship['id']) }}"
+            method="POST"
+            style="margin: 0;"
+        >
+
+            <button
+                type="submit"
+                class="remove-btn"
+                title="Remove from Saved"
+            >
+
+                <i class="fa-solid fa-bookmark"></i>
+
+                Remove
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+                </article>
+
+            {% endfor %}
+
+
+        </div>
+
+
+    {% else %}
+
+
+        <!-- EMPTY STATE -->
+
+        <div class="empty-state">
+
+            <i class="fa-regular fa-bookmark"></i>
+
+            <h3>
+                No Saved Internships Yet
+            </h3>
+
+            <p>
+                Save internships that you are interested in.
+                They will appear here.
+            </p>
+
+
+            <a
+                href="{{ url_for('internships') }}"
+                class="browse-btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Browse Internships
+
+            </a>
+
+        </div>
+
+
+    {% endif %}
+
+
+</div>
+
+
+</body>
+
+</html>

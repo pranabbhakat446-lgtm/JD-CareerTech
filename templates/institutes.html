@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Institutes | Career & Internship Network</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+        }
+
+
+        /* =====================================================
+           PROFESSIONAL PAGE BACK BUTTON
+        ===================================================== */
+
+        .institutes-back-wrap {
+            width: min(1200px, 92%);
+
+            margin: -30px auto 20px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+        .institutes-back-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            min-height: 40px;
+
+            padding: 0 15px;
+
+            background: #ffffff;
+
+            color: #36546f;
+
+            border: 1px solid #d5e2ed;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 3px 10px rgba(8, 43, 85, 0.06);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: all 0.22s ease;
+        }
+
+        .institutes-back-btn i {
+            color: #1769c2;
+
+            font-size: 11px;
+        }
+
+        .institutes-back-btn:hover {
+            color: #0b5cab;
+
+            background: #f2f7fb;
+
+            border-color: #b9cfe2;
+
+            transform: translateX(-2px);
+
+            box-shadow:
+                0 6px 15px rgba(8, 43, 85, 0.09);
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .institutes-page {
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .institute-navbar {
+            background: #002b5b;
+
+            min-height: 70px;
+
+            padding: 0 5%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            box-shadow:
+                0 3px 15px rgba(0, 0, 0, 0.12);
+
+            position: relative;
+
+            z-index: 20;
+        }
+
+        .nav-brand {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .nav-brand i {
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+        }
+
+        .nav-links a {
+            color: #e8f1fb;
+
+            text-decoration: none;
+
+            padding: 10px 13px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255, 215, 0, 0.14);
+
+            color: #ffd700;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+
+            background: transparent;
+
+            border: none;
+
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .institutes-hero {
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(31, 111, 185, 0.45),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #002b5b,
+                    #0756a0
+                );
+
+            color: white;
+
+            padding: 65px 20px 95px;
+
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 8px 16px;
+
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            border: 1px solid rgba(255, 255, 255, 0.20);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-badge i {
+            color: #ffd700;
+        }
+
+        .institutes-hero h1 {
+            margin: 0;
+
+            font-size: 44px;
+
+            line-height: 1.2;
+
+            font-weight: 800;
+        }
+
+        .institutes-hero p {
+            max-width: 750px;
+
+            margin: 16px auto 0;
+
+            color: #dbeafe;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+        ===================================================== */
+
+        .institutes-container {
+            width: min(1200px, 92%);
+
+            margin: -50px auto 60px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           FILTER CARD
+        ===================================================== */
+
+        .filter-card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 43, 91, 0.12);
+
+            margin-bottom: 30px;
+        }
+
+        .filter-title {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #002b5b;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            margin-bottom: 18px;
+        }
+
+        .filter-title i {
+            color: #0756a0;
+        }
+
+        .filter-grid {
+            display: grid;
+
+            grid-template-columns:
+                2fr
+                1fr
+                1fr
+                1fr
+                auto;
+
+            gap: 12px;
+        }
+
+        .input-box,
+        .select-box {
+            width: 100%;
+
+            height: 48px;
+
+            border: 1px solid #d9e1ec;
+
+            border-radius: 10px;
+
+            padding: 0 14px;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            background: white;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        .input-box:focus,
+        .select-box:focus {
+            border-color: #0756a0;
+
+            box-shadow:
+                0 0 0 3px rgba(7, 86, 160, 0.08);
+        }
+
+        .search-btn {
+            height: 48px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            padding: 0 20px;
+
+            background: #002b5b;
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            transition: 0.2s;
+        }
+
+        .search-btn:hover {
+            background: #0756a0;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           QUICK INFO
+        ===================================================== */
+
+        .directory-info {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: white;
+
+            border: 1px solid #e5ebf3;
+
+            border-radius: 14px;
+
+            padding: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+        .info-icon {
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 11px;
+
+            background: #eaf3ff;
+
+            color: #0756a0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 18px;
+
+            flex-shrink: 0;
+        }
+
+        .info-card strong {
+            display: block;
+
+            color: #002b5b;
+
+            font-size: 20px;
+
+            margin-bottom: 3px;
+        }
+
+        .info-card span {
+            color: #718096;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           RESULT HEADER
+        ===================================================== */
+
+        .results-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin: 25px 0 18px;
+        }
+
+        .results-header h2 {
+            margin: 0;
+
+            color: #002b5b;
+
+            font-size: 22px;
+
+            font-weight: 800;
+        }
+
+        .results-header h2 i {
+            color: #0756a0;
+
+            margin-right: 5px;
+        }
+
+        .count-box {
+            background: #eaf3ff;
+
+            color: #0756a0;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           INSTITUTE GRID
+        ===================================================== */
+
+        .institute-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        /* =====================================================
+           INSTITUTE CARD
+        ===================================================== */
+
+        .institute-card {
+            background: white;
+
+            border-radius: 17px;
+
+            padding: 23px;
+
+            border: 1px solid #e5ebf3;
+
+            box-shadow:
+                0 7px 22px rgba(0, 43, 91, 0.07);
+
+            transition: 0.25s;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .institute-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 16px 38px rgba(0, 43, 91, 0.14);
+        }
+
+
+        /* =====================================================
+           CARD TOP
+        ===================================================== */
+
+        .card-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .institute-icon {
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 13px;
+
+            background: #eaf3ff;
+
+            color: #0756a0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 21px;
+
+            flex-shrink: 0;
+        }
+
+        .official-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            background: #e9f8ef;
+
+            color: #167a3f;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           CARD TEXT
+        ===================================================== */
+
+        .institute-card h3 {
+            margin: 0 0 8px;
+
+            color: #102a43;
+
+            font-size: 17px;
+
+            line-height: 1.45;
+        }
+
+        .institute-type {
+            display: inline-block;
+
+            color: #0756a0;
+
+            background: #edf5ff;
+
+            padding: 5px 9px;
+
+            border-radius: 7px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            margin-bottom: 13px;
+        }
+
+
+        /* =====================================================
+           INFO ROW
+        ===================================================== */
+
+        .info-row {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 9px;
+
+            margin: 8px 0;
+
+            color: #5b6878;
+
+            font-size: 12px;
+
+            line-height: 1.55;
+        }
+
+        .info-row i {
+            color: #0756a0;
+
+            width: 16px;
+
+            margin-top: 3px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =====================================================
+           COURSES
+        ===================================================== */
+
+        .courses {
+            margin-top: 12px;
+
+            padding-top: 13px;
+
+            border-top: 1px solid #edf0f4;
+
+            color: #596777;
+
+            font-size: 12px;
+
+            line-height: 1.65;
+        }
+
+        .courses strong {
+            color: #26384d;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-box {
+            margin-top: 13px;
+
+            padding-top: 13px;
+
+            border-top: 1px solid #edf0f4;
+        }
+
+        .contact-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #596777;
+
+            font-size: 12px;
+
+            margin: 7px 0;
+        }
+
+        .contact-item i {
+            color: #0756a0;
+
+            width: 15px;
+        }
+
+
+        /* =====================================================
+           ACTION BUTTONS
+        ===================================================== */
+
+        .card-actions {
+            display: flex;
+
+            gap: 9px;
+
+            margin-top: auto;
+
+            padding-top: 18px;
+        }
+
+        .action-btn {
+            flex: 1;
+
+            min-height: 42px;
+
+            border-radius: 9px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 7px;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            transition: 0.2s;
+        }
+
+        .website-btn {
+            background: #002b5b;
+
+            color: white;
+        }
+
+        .website-btn:hover {
+            background: #0756a0;
+        }
+
+        .map-btn {
+            background: #f0f4f9;
+
+            color: #26384d;
+        }
+
+        .map-btn:hover {
+            background: #e2eaf3;
+        }
+
+
+        /* =====================================================
+           EMPTY STATE
+        ===================================================== */
+
+        .empty-state {
+            background: white;
+
+            border-radius: 17px;
+
+            padding: 60px 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 7px 22px rgba(0, 43, 91, 0.06);
+        }
+
+        .empty-state i {
+            font-size: 45px;
+
+            color: #9aabc0;
+
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            margin: 0 0 8px;
+
+            color: #26384d;
+        }
+
+        .empty-state p {
+            margin: 0;
+
+            color: #718096;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .institute-footer {
+            background: #001f42;
+
+            color: #b9c8d8;
+
+            text-align: center;
+
+            padding: 25px 20px;
+
+            font-size: 12px;
+        }
+
+        .institute-footer strong {
+            color: white;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE - TABLET
+        ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .filter-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .search-field {
+                grid-column: 1 / -1;
+            }
+
+            .institute-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE - MOBILE
+        ===================================================== */
+
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+
+                left: 0;
+
+                right: 0;
+
+                background: #002b5b;
+
+                padding: 10px 5% 15px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                box-shadow:
+                    0 8px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .directory-info {
+                grid-template-columns: 1fr;
+            }
+
+            .institute-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .institutes-hero h1 {
+                font-size: 32px;
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE - SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .institutes-back-wrap {
+                width: 94%;
+
+                margin-top: -22px;
+
+                margin-bottom: 16px;
+            }
+
+            .institutes-back-btn {
+                min-height: 38px;
+
+                padding: 0 12px;
+
+                font-size: 11px;
+            }
+
+            .institutes-hero {
+                padding: 45px 18px 80px;
+            }
+
+            .institutes-hero h1 {
+                font-size: 29px;
+            }
+
+            .institutes-hero p {
+                font-size: 14px;
+            }
+
+            .institutes-container {
+                width: 94%;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-field {
+                grid-column: auto;
+            }
+
+            .results-header {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 10px;
+            }
+
+            .card-actions {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="institutes-page">
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="institute-navbar">
+
+        <a href="{{ url_for('home') }}"
+           class="nav-brand">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            Career & Internship Network
+
+        </a>
+
+
+        <button
+            class="mobile-menu-btn"
+            onclick="toggleInstituteMenu()"
+            aria-label="Open menu"
+        >
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+        <div class="nav-links"
+             id="instituteNavLinks">
+
+            <a href="{{ url_for('home') }}">
+
+                <i class="fa-solid fa-house"></i>
+
+                Home
+
+            </a>
+
+
+            <a href="{{ url_for('internships') }}">
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                Internships
+
+            </a>
+
+
+            <a href="{{ url_for('institutes') }}"
+               class="active">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+                Institutes
+
+            </a>
+
+
+            <a href="{{ url_for('career') }}">
+
+                <i class="fa-solid fa-route"></i>
+
+                Career Guide
+
+            </a>
+
+
+            <a href="{{ url_for('decision_assistant') }}">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                Decision Assistant
+
+            </a>
+
+
+            {% if session.get("student_id") %}
+
+            <a href="{{ url_for('dashboard') }}">
+
+                <i class="fa-solid fa-gauge-high"></i>
+
+                Dashboard
+
+            </a>
+
+            {% else %}
+
+            <a href="{{ url_for('login') }}">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                Login
+
+            </a>
+
+            {% endif %}
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="institutes-hero">
+
+        <div class="hero-badge">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Verified Institute Directory
+
+        </div>
+
+
+        <h1>
+
+            Find Institutes & Colleges
+
+        </h1>
+
+
+        <p>
+
+            Explore polytechnic colleges, engineering institutes and
+            technical education institutions across Jharkhand.
+
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="institutes-container">
+
+
+        <!-- =================================================
+             BACK BUTTON
+        ================================================== -->
+
+        <div class="institutes-back-wrap">
+
+            <a href="{{ url_for('home') }}"
+               class="institutes-back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             FILTER
+        ================================================== -->
+
+        <div class="filter-card">
+
+            <div class="filter-title">
+
+                <i class="fa-solid fa-sliders"></i>
+
+                Search & Filter Institutes
+
+            </div>
+
+
+            <form
+                method="GET"
+                action="{{ url_for('institutes') }}"
+            >
+
+                <div class="filter-grid">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="search-field">
+
+                        <input
+                            type="text"
+                            name="search"
+                            class="input-box"
+                            placeholder="Search institute, course, city..."
+                            value="{{ search_query }}"
+                        >
+
+                    </div>
+
+
+                    <!-- CITY -->
+
+                    <div>
+
+                        <select
+                            name="city"
+                            class="select-box"
+                        >
+
+                            <option value="">
+                                All Cities
+                            </option>
+
+
+                            {% for item in cities %}
+
+                            <option
+                                value="{{ item['city'] }}"
+                                {% if selected_city == item['city'] %}
+                                    selected
+                                {% endif %}
+                            >
+
+                                {{ item['city'] }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- TYPE -->
+
+                    <div>
+
+                        <select
+                            name="type"
+                            class="select-box"
+                        >
+
+                            <option value="">
+                                All Types
+                            </option>
+
+
+                            {% for item in institute_types %}
+
+                            <option
+                                value="{{ item['institute_type'] }}"
+                                {% if selected_type == item['institute_type'] %}
+                                    selected
+                                {% endif %}
+                            >
+
+                                {{ item['institute_type'] }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div>
+
+                        <select
+                            name="category"
+                            class="select-box"
+                        >
+
+                            <option value="">
+                                All Categories
+                            </option>
+
+
+                            {% for item in categories %}
+
+                            <option
+                                value="{{ item['category'] }}"
+                                {% if selected_category == item['category'] %}
+                                    selected
+                                {% endif %}
+                            >
+
+                                {{ item['category'] }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SEARCH BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="search-btn"
+                    >
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Search
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- =================================================
+             DIRECTORY INFO
+        ================================================== -->
+
+        <div class="directory-info">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        {{ total_count }}
+                    </strong>
+
+                    <span>
+                        Institutes Listed
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        {{ cities|length }}
+                    </strong>
+
+                    <span>
+                        Cities Covered
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+
+                    <i class="fa-solid fa-filter"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        {{ filtered_count }}
+                    </strong>
+
+                    <span>
+                        Matching Results
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RESULT HEADER
+        ================================================== -->
+
+        <div class="results-header">
+
+            <h2>
+
+                <i class="fa-solid fa-school"></i>
+
+                Institutes
+
+            </h2>
+
+
+            <div class="count-box">
+
+                Showing
+
+                {{ filtered_count }}
+
+                of
+
+                {{ total_count }}
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             INSTITUTE CARDS
+        ================================================== -->
+
+        {% if institutes %}
+
+        <div class="institute-grid">
+
+
+            {% for institute in institutes %}
+
+            <article class="institute-card">
+
+
+                <!-- CARD TOP -->
+
+                <div class="card-top">
+
+                    <div class="institute-icon">
+
+                        <i class="fa-solid fa-building-columns"></i>
+
+                    </div>
+
+
+                    <div class="official-badge">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        {{ institute['verification_status'] or 'Official' }}
+
+                    </div>
+
+                </div>
+
+
+                <!-- NAME -->
+
+                <h3>
+
+                    {{ institute['name'] }}
+
+                </h3>
+
+
+                <!-- TYPE -->
+
+                {% if institute['institute_type'] %}
+
+                <div class="institute-type">
+
+                    {{ institute['institute_type'] }}
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- LOCATION -->
+
+                {% if institute['city'] or institute['district'] %}
+
+                <div class="info-row">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+
+                        {% if institute['city'] %}
+
+                            {{ institute['city'] }}
+
+                        {% endif %}
+
+
+                        {% if institute['district'] %}
+
+                            {% if institute['city'] %}
+                                ,
+                            {% endif %}
+
+                            {{ institute['district'] }}
+
+                        {% endif %}
+
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- ADDRESS -->
+
+                {% if institute['address'] %}
+
+                <div class="info-row">
+
+                    <i class="fa-solid fa-map-pin"></i>
+
+                    <span>
+
+                        {{ institute['address'] }}
+
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- AREA -->
+
+                {% if institute['area'] %}
+
+                <div class="info-row">
+
+                    <i class="fa-solid fa-location-crosshairs"></i>
+
+                    <span>
+
+                        {{ institute['area'] }}
+
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- COURSES -->
+
+                {% if institute['courses'] %}
+
+                <div class="courses">
+
+                    <strong>
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        Courses:
+
+                    </strong>
+
+                    {{ institute['courses'] }}
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- DESCRIPTION -->
+
+                {% if institute['description'] %}
+
+                <div class="courses">
+
+                    {{ institute['description'] }}
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- CONTACT -->
+
+                {% if institute['phone'] or institute['email'] %}
+
+                <div class="contact-box">
+
+
+                    {% if institute['phone'] %}
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <span>
+
+                            {{ institute['phone'] }}
+
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if institute['email'] %}
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <span>
+
+                            {{ institute['email'] }}
+
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+                </div>
+
+                {% endif %}
+
+
+                <!-- ACTIONS -->
+
+                <div class="card-actions">
+
+
+                    {% if institute['official_website'] %}
+
+                    <a
+                        href="{{ institute['official_website'] }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="action-btn website-btn"
+                    >
+
+                        <i class="fa-solid fa-globe"></i>
+
+                        Official Website
+
+                    </a>
+
+                    {% endif %}
+
+
+                    {% if institute['address']
+                          or institute['area']
+                          or institute['city'] %}
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query={{ ((institute['address'] or '') ~ ' ' ~ (institute['area'] or '') ~ ' ' ~ (institute['city'] or '')) | urlencode }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="action-btn map-btn"
+                    >
+
+                        <i class="fa-solid fa-map-location-dot"></i>
+
+                        Map
+
+                    </a>
+
+                    {% endif %}
+
+
+                </div>
+
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+
+        {% else %}
+
+
+        <!-- =================================================
+             EMPTY STATE
+        ================================================== -->
+
+        <div class="empty-state">
+
+            <i class="fa-solid fa-building-circle-xmark"></i>
+
+            <h3>
+
+                No institutes found
+
+            </h3>
+
+            <p>
+
+                Try another institute name, city, type or category.
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="institute-footer">
+
+        <strong>
+
+            Career & Internship Network
+
+        </strong>
+
+        &nbsp;•&nbsp;
+
+        Helping students discover education, internships and
+        career opportunities.
+
+    </footer>
+
+
+</div>
+
+
+<script>
+
+    function toggleInstituteMenu() {
+
+        const menu =
+            document.getElementById("instituteNavLinks");
+
+        menu.classList.toggle("show");
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

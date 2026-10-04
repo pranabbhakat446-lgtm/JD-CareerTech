@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {{ internship["title"] }} | Career & Internship Network
+    </title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f8fc;
+            color: #172033;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            height: 72px;
+            background: #002b5b;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+
+        .logo i {
+            color: #ffd700;
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    #002b5b 0%,
+                    #0756a0 100%
+                );
+
+            color: white;
+            padding: 48px 7% 70px;
+        }
+
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #dbeafe;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+
+
+        .back-link:hover {
+            color: #ffd700;
+        }
+
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 14px;
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.22);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            margin-bottom: 17px;
+        }
+
+
+        .hero-badge i {
+            color: #ffd700;
+        }
+
+
+        .hero h1 {
+            font-size: 40px;
+            line-height: 1.25;
+            max-width: 900px;
+            margin-bottom: 12px;
+        }
+
+
+        .company {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #dbeafe;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+
+        .company i {
+            color: #ffd700;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .container {
+            width: min(1200px, 92%);
+            margin: -35px auto 50px;
+            position: relative;
+        }
+
+
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 25px;
+            align-items: start;
+        }
+
+
+        /* =====================================================
+           CARDS
+        ===================================================== */
+
+        .card {
+            background: white;
+            border: 1px solid #e3eaf2;
+            border-radius: 17px;
+            padding: 26px;
+
+            box-shadow:
+                0 8px 25px rgba(0,43,91,0.07);
+
+            margin-bottom: 20px;
+        }
+
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #002b5b;
+            font-size: 19px;
+            font-weight: 800;
+
+            margin-bottom: 18px;
+        }
+
+
+        .card-title i {
+            color: #0756a0;
+        }
+
+
+        /* =====================================================
+           QUICK INFO
+        ===================================================== */
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+
+        .quick-box {
+            background: #f6f9fd;
+            border: 1px solid #e6edf5;
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+
+        .quick-box i {
+            color: #0756a0;
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+
+        .quick-label {
+            display: block;
+            color: #7a8798;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: .4px;
+        }
+
+
+        .quick-value {
+            color: #26384d;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+
+        /* =====================================================
+           DESCRIPTION
+        ===================================================== */
+
+        .description {
+            color: #596777;
+            font-size: 14px;
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+
+
+        /* =====================================================
+           ELIGIBILITY
+        ===================================================== */
+
+        .eligibility {
+            background: #f1f7ff;
+            border: 1px solid #dcecff;
+            border-left: 4px solid #0756a0;
+
+            border-radius: 10px;
+            padding: 17px;
+
+            color: #526174;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+
+        .skill {
+            background: #edf5ff;
+            color: #0756a0;
+
+            border: 1px solid #dcecff;
+
+            padding: 8px 13px;
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           LOCATION
+        ===================================================== */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px;
+        }
+
+
+        .info-box {
+            background: #f8fafc;
+            border: 1px solid #e8edf3;
+            border-radius: 11px;
+            padding: 15px;
+
+            display: flex;
+            gap: 12px;
+        }
+
+
+        .info-icon {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 9px;
+
+            background: #eaf3ff;
+            color: #0756a0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+
+        .info-content strong {
+            display: block;
+            color: #7b8797;
+            font-size: 10px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+
+        .info-content span {
+            color: #26384d;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           SIDE CARD
+        ===================================================== */
+
+        .side-card {
+            position: sticky;
+            top: 20px;
+        }
+
+
+        .side-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+
+        .side-header h2 {
+            color: #002b5b;
+            font-size: 19px;
+        }
+
+
+        .verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+
+            background: #e9f8ef;
+            color: #167a3f;
+
+            padding: 6px 10px;
+            border-radius: 20px;
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+
+        .side-list {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+
+        .side-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+
+        .side-row > i {
+            width: 18px;
+            color: #0756a0;
+            margin-top: 3px;
+        }
+
+
+        .side-row strong {
+            display: block;
+            color: #7c8797;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            margin-bottom: 4px;
+        }
+
+
+        .side-row span {
+            color: #26384d;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .btn {
+            width: 100%;
+            min-height: 45px;
+
+            border-radius: 10px;
+            border: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            text-decoration: none;
+
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+            margin-bottom: 10px;
+        }
+
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        .btn-apply {
+            background: #ffd700;
+            color: #002b5b;
+        }
+
+
+        .btn-apply:hover {
+            background: #f1c900;
+        }
+
+
+        .btn-primary {
+            background: #0756a0;
+            color: white;
+        }
+
+
+        .btn-primary:hover {
+            background: #004584;
+        }
+
+
+        .btn-outline {
+            background: white;
+            color: #0756a0;
+            border: 1px solid #d4dfeb;
+        }
+
+
+        .btn-outline:hover {
+            background: #f1f6fc;
+        }
+
+
+        .btn-save {
+            background: #fff8e6;
+            color: #9a6a00;
+            border: 1px solid #f5df9c;
+        }
+
+
+        .btn-save:hover {
+            background: #fff1c7;
+        }
+
+
+        .btn-remove {
+            background: #fff1f2;
+            color: #c62828;
+            border: 1px solid #ffd4d7;
+        }
+
+
+        .btn-remove:hover {
+            background: #ffe5e7;
+        }
+
+
+        .btn-map {
+            background: #eaf8f4;
+            color: #087a61;
+            border: 1px solid #ccefe5;
+        }
+
+
+        .btn-map:hover {
+            background: #dcf5ed;
+        }
+
+
+        /* =====================================================
+           OFFICIAL SOURCE
+        ===================================================== */
+
+        .source-box {
+            background: #f8fafc;
+            border: 1px solid #e6ebf1;
+            border-radius: 11px;
+            padding: 14px;
+
+            margin-top: 17px;
+        }
+
+
+        .source-title {
+            color: #26384d;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+
+        .source-text {
+            color: #748093;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact-box {
+            display: grid;
+            gap: 10px;
+        }
+
+
+        .contact-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            color: #596777;
+            font-size: 13px;
+        }
+
+
+        .contact-item i {
+            color: #0756a0;
+            width: 18px;
+        }
+
+
+        /* =====================================================
+           FLASH
+        ===================================================== */
+
+        .flash-container {
+            width: min(1200px, 92%);
+            margin: 20px auto 0;
+        }
+
+
+        .flash {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #dbeafe;
+
+            padding: 12px 15px;
+            border-radius: 10px;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+
+            .side-card {
+                position: static;
+            }
+
+
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+
+            .logo {
+                font-size: 16px;
+            }
+
+
+            .nav-links {
+                gap: 10px;
+            }
+
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+
+            .hero {
+                padding: 38px 5% 65px;
+            }
+
+
+            .hero h1 {
+                font-size: 29px;
+            }
+
+
+            .container {
+                width: 94%;
+            }
+
+
+            .card {
+                padding: 20px;
+            }
+
+
+            .quick-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .nav-links a i {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <a href="{{ url_for('home') }}"
+       class="logo">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        Career & Internship Network
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('home') }}">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+
+        <a href="{{ url_for('internships') }}">
+            <i class="fa-solid fa-briefcase"></i>
+            Internships
+        </a>
+
+
+        <a href="{{ url_for('institutes') }}">
+            <i class="fa-solid fa-building-columns"></i>
+            Institutes
+        </a>
+
+
+        {% if session.get("student_id") %}
+
+            <a href="{{ url_for('dashboard') }}">
+                <i class="fa-solid fa-user"></i>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{{ url_for('login') }}">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     FLASH MESSAGE
+===================================================== -->
+
+{% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+
+        <div class="flash-container">
+
+            {% for message in messages %}
+
+                <div class="flash">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    {{ message }}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+{% endwith %}
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <a href="{{ url_for('internships') }}"
+           class="back-link">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Opportunities
+
+        </a>
+
+
+        <div class="hero-badge">
+
+            {% if internship["opportunity_type"] == "Internship" %}
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                INTERNSHIP OPPORTUNITY
+
+            {% else %}
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                TRAINING PROGRAM
+
+            {% endif %}
+
+        </div>
+
+
+        <h1>
+            {{ internship["title"] }}
+        </h1>
+
+
+        <div class="company">
+
+            <i class="fa-solid fa-building"></i>
+
+            {{ internship["company"] }}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+    <div class="layout">
+
+
+        <!-- =================================================
+             LEFT SIDE
+        ================================================== -->
+
+        <div>
+
+
+            <!-- QUICK INFORMATION -->
+
+            <div class="card">
+
+                <div class="quick-grid">
+
+
+                    <div class="quick-box">
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        <span class="quick-label">
+                            Type
+                        </span>
+
+                        <span class="quick-value">
+                            {{ internship["opportunity_type"] }}
+                        </span>
+
+                    </div>
+
+
+                    {% if internship["field"] %}
+
+                    <div class="quick-box">
+
+                        <i class="fa-solid fa-code"></i>
+
+                        <span class="quick-label">
+                            Field
+                        </span>
+
+                        <span class="quick-value">
+                            {{ internship["field"] }}
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if internship["city"] %}
+
+                    <div class="quick-box">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <span class="quick-label">
+                            City
+                        </span>
+
+                        <span class="quick-value">
+                            {{ internship["city"] }}
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if internship["duration"] %}
+
+                    <div class="quick-box">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <span class="quick-label">
+                            Duration
+                        </span>
+
+                        <span class="quick-value">
+                            {{ internship["duration"] }}
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ABOUT -->
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    {% if internship["opportunity_type"] == "Internship" %}
+                        About This Internship
+                    {% else %}
+                        About This Training
+                    {% endif %}
+
+                </div>
+
+
+                <div class="description">
+
+                    {{ internship["description"] }}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ELIGIBILITY -->
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                    Eligibility
+
+                </div>
+
+
+                <div class="eligibility">
+
+                    {{ internship["eligibility"] or
+                       "Eligibility information has not been specified." }}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SKILLS -->
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    {% if internship["opportunity_type"] == "Internship" %}
+                        Required Skills
+                    {% else %}
+                        Skills / Topics Covered
+                    {% endif %}
+
+                </div>
+
+
+                <div class="skills">
+
+                    {% if internship["skills"] %}
+
+                        {% for skill in internship["skills"].split(",") %}
+
+                            {% if skill.strip() %}
+
+                                <span class="skill">
+
+                                    {{ skill.strip() }}
+
+                                </span>
+
+                            {% endif %}
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <span class="skill">
+                            Information not specified
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LOCATION -->
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Location Details
+
+                </div>
+
+
+                <div class="info-grid">
+
+
+                    {% if internship["city"] %}
+
+                    <div class="info-box">
+
+                        <div class="info-icon">
+                            <i class="fa-solid fa-city"></i>
+                        </div>
+
+                        <div class="info-content">
+
+                            <strong>City</strong>
+
+                            <span>
+                                {{ internship["city"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    {% if internship["area"] %}
+
+                    <div class="info-box">
+
+                        <div class="info-icon">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+
+                        <div class="info-content">
+
+                            <strong>Area</strong>
+
+                            <span>
+                                {{ internship["area"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    {% if internship["address"] %}
+
+                    <div class="info-box">
+
+                        <div class="info-icon">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                        </div>
+
+                        <div class="info-content">
+
+                            <strong>Address</strong>
+
+                            <span>
+                                {{ internship["address"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    {% if internship["mode"] %}
+
+                    <div class="info-box">
+
+                        <div class="info-icon">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+
+                        <div class="info-content">
+
+                            <strong>Mode</strong>
+
+                            <span>
+                                {{ internship["mode"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            {% if internship["contact_phone"]
+                  or internship["contact_email"] %}
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <i class="fa-solid fa-address-book"></i>
+
+                    Contact Information
+
+                </div>
+
+
+                <div class="contact-box">
+
+
+                    {% if internship["contact_phone"] %}
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <span>
+                            {{ internship["contact_phone"] }}
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    {% if internship["contact_email"] %}
+
+                    <div class="contact-item">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <span>
+                            {{ internship["contact_email"] }}
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT SIDE
+        ================================================== -->
+
+        <aside>
+
+
+            <div class="card side-card">
+
+
+                <div class="side-header">
+
+                    <h2>
+
+                        {% if internship["opportunity_type"] == "Internship" %}
+
+                            Internship Details
+
+                        {% else %}
+
+                            Training Details
+
+                        {% endif %}
+
+                    </h2>
+
+
+                    {% if internship["verification_status"] == "Verified" %}
+
+                    <span class="verified">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Verified
+
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+
+                <div class="side-list">
+
+
+                    <!-- PROVIDER -->
+
+                    <div class="side-row">
+
+                        <i class="fa-solid fa-building"></i>
+
+                        <div>
+
+                            <strong>Organization</strong>
+
+                            <span>
+                                {{ internship["company"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TYPE -->
+
+                    <div class="side-row">
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        <div>
+
+                            <strong>Opportunity Type</strong>
+
+                            <span>
+                                {{ internship["opportunity_type"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- LOCATION -->
+
+                    {% if internship["location"]
+                          or internship["city"] %}
+
+                    <div class="side-row">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div>
+
+                            <strong>Location</strong>
+
+                            <span>
+                                {{ internship["location"]
+                                   or internship["city"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    <!-- MODE -->
+
+                    {% if internship["mode"] %}
+
+                    <div class="side-row">
+
+                        <i class="fa-solid fa-laptop"></i>
+
+                        <div>
+
+                            <strong>Mode</strong>
+
+                            <span>
+                                {{ internship["mode"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    <!-- DURATION -->
+
+                    {% if internship["duration"] %}
+
+                    <div class="side-row">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <div>
+
+                            <strong>Duration</strong>
+
+                            <span>
+                                {{ internship["duration"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    <!-- STIPEND -->
+
+                    {% if internship["opportunity_type"] == "Internship" %}
+
+                        <div class="side-row">
+
+                            <i class="fa-solid fa-money-bill-wave"></i>
+
+                            <div>
+
+                                <strong>Stipend</strong>
+
+                                <span>
+
+                                    {{ internship["stipend"]
+                                       or "Not specified" }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    {% endif %}
+
+
+
+                    <!-- FEE -->
+
+                    {% if internship["opportunity_type"] == "Training"
+                          and internship["fee"] %}
+
+                    <div class="side-row">
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                        <div>
+
+                            <strong>Course Fee</strong>
+
+                            <span>
+                                {{ internship["fee"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+
+
+                    <!-- LAST DATE -->
+
+                    {% if internship["last_date"] %}
+
+                    <div class="side-row">
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                        <div>
+
+                            <strong>Last Date</strong>
+
+                            <span>
+                                {{ internship["last_date"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+
+
+                <!-- =========================================
+                     SAVE / APPLY
+                ========================================== -->
+
+                {% if session.get("student_id") %}
+
+
+                    {% if is_saved %}
+
+                    <form method="POST"
+                          action="{{ url_for(
+                              'unsave_internship',
+                              internship_id=internship['id']
+                          ) }}">
+
+                        <button type="submit"
+                                class="btn btn-remove">
+
+                            <i class="fa-solid fa-bookmark"></i>
+
+                            Remove from Saved
+
+                        </button>
+
+                    </form>
+
+                    {% else %}
+
+                    <form method="POST"
+                          action="{{ url_for(
+                              'save_internship',
+                              internship_id=internship['id']
+                          ) }}">
+
+                        <button type="submit"
+                                class="btn btn-save">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                            Save Opportunity
+
+                        </button>
+
+                    </form>
+
+                    {% endif %}
+
+
+
+                    <form method="POST"
+                          action="{{ url_for(
+                              'apply_internship',
+                              internship_id=internship['id']
+                          ) }}">
+
+                        <button type="submit"
+                                class="btn btn-apply">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                            {% if internship["opportunity_type"]
+                                  == "Internship" %}
+
+                                Apply for Internship
+
+                            {% else %}
+
+                                Enroll in Training
+
+                            {% endif %}
+
+                        </button>
+
+                    </form>
+
+
+                {% else %}
+
+
+                    <a href="{{ url_for('login') }}"
+                       class="btn btn-outline">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login to Save / Apply
+
+                    </a>
+
+
+                {% endif %}
+
+
+
+                <!-- OFFICIAL APPLICATION -->
+
+                {% if internship["application_url"]
+                      or internship["apply_link"] %}
+
+                <a href="{{ internship['application_url']
+                           or internship['apply_link'] }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-primary">
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    Official Application Page
+
+                </a>
+
+                {% endif %}
+
+
+
+                <!-- OFFICIAL WEBSITE -->
+
+                {% if internship["official_website"] %}
+
+                <a href="{{ internship['official_website'] }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-outline">
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    Official Website
+
+                </a>
+
+                {% endif %}
+
+
+
+                <!-- MAP -->
+
+                {% if internship["map_link"] %}
+
+                <a href="{{ internship['map_link'] }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-map">
+
+                    <i class="fa-solid fa-location-arrow"></i>
+
+                    Get Directions
+
+                </a>
+
+                {% elif internship["address"]
+                        or internship["location"]
+                        or internship["city"] %}
+
+                <a href="https://www.google.com/maps/dir/?api=1&destination={{
+                    (internship['address']
+                    or internship['location']
+                    or internship['city']) | urlencode
+                }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-map">
+
+                    <i class="fa-solid fa-location-arrow"></i>
+
+                    Get Directions
+
+                </a>
+
+                {% endif %}
+
+
+
+                <!-- SOURCE -->
+
+                {% if internship["source_url"] %}
+
+                <div class="source-box">
+
+                    <div class="source-title">
+
+                        <i class="fa-solid fa-shield-check"></i>
+
+                        Source / Verification
+
+                    </div>
+
+                    <div class="source-text">
+
+                        Opportunity information is linked to the
+                        listed source.
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+
+
+                <!-- VIEW ALL -->
+
+                <a href="{{ url_for('internships') }}"
+                   class="btn btn-outline"
+                   style="margin-top:15px;">
+
+                    <i class="fa-solid fa-list"></i>
+
+                    View All Opportunities
+
+                </a>
+
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+</body>
+
+</html>

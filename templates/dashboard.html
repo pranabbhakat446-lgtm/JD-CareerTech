@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Dashboard | Career & Internship Network
+    </title>
+
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: "Inter", sans-serif;
+
+            background: #f5f8fc;
+
+            color: #172033;
+
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+
+            background: #002b5b;
+
+            min-height: 72px;
+
+            padding: 0 6%;
+
+            display: flex;
+
+            align-items: center;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .nav-container {
+
+            width: 100%;
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: white;
+
+        }
+
+
+        .logo-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 11px;
+
+            background: #ffd700;
+
+            color: #002b5b;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 18px;
+
+        }
+
+
+        .logo-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            line-height: 1.1;
+
+        }
+
+
+        .logo-text span {
+
+            font-size: 11px;
+
+            color: #dbeafe;
+
+            font-weight: 500;
+
+        }
+
+
+        .logo-text strong {
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+        }
+
+
+        /* NAV LINKS */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+        .nav-links a {
+
+            color: #dbeafe;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.2s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: #ffd700;
+
+        }
+
+
+        /* NAV ACTION */
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+        .login-btn {
+
+            background: #ffd700;
+
+            color: #002b5b;
+
+            padding: 10px 17px;
+
+            border-radius: 9px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            transition: 0.2s;
+
+        }
+
+
+        .login-btn:hover {
+
+            background: #f2ca00;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* MOBILE MENU */
+
+        .mobile-menu-btn {
+
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+        }
+
+
+        .mobile-nav {
+
+            display: none;
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .dashboard-section {
+
+            padding: 42px 20px 70px;
+
+        }
+
+
+        .dashboard-container {
+
+            width: min(1200px, 94%);
+
+            margin: auto;
+
+        }
+
+
+        /* =====================================================
+           WELCOME
+        ===================================================== */
+
+        .dashboard-welcome {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #002b5b,
+                    #0756a0
+                );
+
+            color: white;
+
+            border-radius: 20px;
+
+            padding: 32px 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            margin-bottom: 22px;
+
+            box-shadow:
+                0 12px 30px rgba(0,43,91,0.14);
+
+        }
+
+
+        .dashboard-welcome > div > span {
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
+            color: #a9d1ff;
+
+        }
+
+
+        .dashboard-welcome h1 {
+
+            margin-top: 8px;
+
+            font-size: 30px;
+
+            line-height: 1.3;
+
+        }
+
+
+        .dashboard-welcome p {
+
+            margin-top: 9px;
+
+            color: #dbeafe;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .find-btn {
+
+            background: #ffd700;
+
+            color: #002b5b;
+
+            padding: 13px 20px;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            white-space: nowrap;
+
+            transition: 0.2s;
+
+        }
+
+
+        .find-btn:hover {
+
+            background: #f2ca00;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .dashboard-stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 17px;
+
+            margin-bottom: 24px;
+
+        }
+
+
+        .dashboard-stat {
+
+            background: white;
+
+            border: 1px solid #e2e9f1;
+
+            border-radius: 16px;
+
+            padding: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            box-shadow:
+                0 7px 22px rgba(0,43,91,0.05);
+
+            transition: 0.2s;
+
+        }
+
+
+        .dashboard-stat:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 28px rgba(0,43,91,0.09);
+
+        }
+
+
+        .stat-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 12px;
+
+            background: #eaf3ff;
+
+            color: #0756a0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 19px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .stat-content strong {
+
+            display: block;
+
+            color: #002b5b;
+
+            font-size: 23px;
+
+            font-weight: 800;
+
+        }
+
+
+        .stat-content span {
+
+            display: block;
+
+            color: #748093;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* =====================================================
+           MAIN GRID
+        ===================================================== */
+
+        .dashboard-main-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.3fr 0.7fr;
+
+            gap: 20px;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .dashboard-card {
+
+            background: white;
+
+            border: 1px solid #e2e9f1;
+
+            border-radius: 17px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 7px 22px rgba(0,43,91,0.05);
+
+        }
+
+
+        .dashboard-card-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .dashboard-card-header h2 {
+
+            color: #002b5b;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+        }
+
+
+        .card-header-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 11px;
+
+            background: #eaf3ff;
+
+            color: #0756a0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .dashboard-card > p {
+
+            color: #68778a;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* =====================================================
+           PROFILE PROGRESS
+        ===================================================== */
+
+        .progress-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .progress-top span {
+
+            color: #69778a;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+        }
+
+
+        .progress-top strong {
+
+            color: #0756a0;
+
+            font-size: 13px;
+
+        }
+
+
+        .progress-track {
+
+            height: 9px;
+
+            background: #e9eef5;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .progress-fill {
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #0756a0,
+                    #1684e8
+                );
+
+            border-radius: 20px;
+
+        }
+
+
+        .profile-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: #002b5b;
+
+            color: white;
+
+            padding: 11px 16px;
+
+            border-radius: 9px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            transition: 0.2s;
+
+        }
+
+
+        .profile-btn:hover {
+
+            background: #0756a0;
+
+        }
+
+
+        /* =====================================================
+           RECOMMENDATION
+        ===================================================== */
+
+        .recommendation-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #f7fbff,
+                    #eef6ff
+                );
+
+            border: 1px solid #dcecff;
+
+        }
+
+
+        .recommendation-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 13px;
+
+            background: #dcecff;
+
+            color: #0756a0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 15px;
+
+            font-size: 19px;
+
+        }
+
+
+        .recommendation-card h2 {
+
+            color: #002b5b;
+
+            font-size: 18px;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .recommendation-card p {
+
+            color: #637286;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .explore-link {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #0756a0;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+        }
+
+
+        .explore-link:hover {
+
+            color: #002b5b;
+
+        }
+
+
+        /* =====================================================
+           QUICK ACTIONS
+        ===================================================== */
+
+        .quick-heading {
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .quick-heading span {
+
+            color: #0756a0;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
+        }
+
+
+        .quick-heading h2 {
+
+            margin-top: 5px;
+
+            color: #002b5b;
+
+            font-size: 22px;
+
+        }
+
+
+        .quick-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+
+        }
+
+
+        .quick-card {
+
+            background: white;
+
+            border: 1px solid #e2e9f1;
+
+            border-radius: 15px;
+
+            padding: 19px;
+
+            display: grid;
+
+            grid-template-columns:
+                auto 1fr auto;
+
+            gap: 13px;
+
+            align-items: center;
+
+            box-shadow:
+                0 6px 20px rgba(0,43,91,0.04);
+
+            transition: 0.25s;
+
+        }
+
+
+        .quick-card:hover {
+
+            transform: translateY(-4px);
+
+            border-color: #c9dff5;
+
+            box-shadow:
+                0 13px 28px rgba(0,43,91,0.09);
+
+        }
+
+
+        .quick-icon {
+
+            width: 43px;
+
+            height: 43px;
+
+            border-radius: 11px;
+
+            background: #eaf3ff;
+
+            color: #0756a0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .quick-card h3 {
+
+            color: #17324f;
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .quick-card p {
+
+            color: #788598;
+
+            font-size: 10px;
+
+            line-height: 1.55;
+
+        }
+
+
+        .quick-arrow {
+
+            color: #0756a0;
+
+            font-size: 13px;
+
+        }
+
+
+        /* DECISION ASSISTANT */
+
+        .decision-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf0,
+                    #fffdf7
+                );
+
+            border-color: #f3e4b7;
+
+        }
+
+
+        .decision-card .quick-icon {
+
+            background: #fff1c7;
+
+            color: #a47700;
+
+        }
+
+
+        .decision-card .quick-arrow {
+
+            color: #a47700;
+
+        }
+
+
+        /* =====================================================
+           FOOTER SPACE
+        ===================================================== */
+
+        .dashboard-footer-space {
+
+            height: 20px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .dashboard-main-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .quick-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .nav-links,
+            .nav-actions {
+
+                display: none;
+
+            }
+
+
+            .mobile-menu-btn {
+
+                display: block;
+
+            }
+
+
+            .mobile-nav {
+
+                background: #002b5b;
+
+                padding: 10px 6% 18px;
+
+            }
+
+
+            .mobile-nav.active {
+
+                display: block;
+
+            }
+
+
+            .mobile-nav a {
+
+                display: flex;
+
+                align-items: center;
+
+                gap: 10px;
+
+                color: white;
+
+                padding: 12px 0;
+
+                font-size: 13px;
+
+                font-weight: 600;
+
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            }
+
+
+            .dashboard-welcome {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+
+            .dashboard-stats {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .dashboard-section {
+
+                padding: 25px 12px 50px;
+
+            }
+
+
+            .dashboard-container {
+
+                width: 96%;
+
+            }
+
+
+            .dashboard-welcome {
+
+                padding: 25px 21px;
+
+            }
+
+
+            .dashboard-welcome h1 {
+
+                font-size: 24px;
+
+            }
+
+
+            .dashboard-welcome p {
+
+                font-size: 12px;
+
+            }
+
+
+            .quick-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .dashboard-card {
+
+                padding: 21px;
+
+            }
+
+
+            .logo-text strong {
+
+                font-size: 13px;
+
+            }
+
+
+            .logo-text span {
+
+                font-size: 9px;
+
+            }
+
+        }
+
+        /* =====================================================
+   PROFESSIONAL DASHBOARD BACK BUTTON
+===================================================== */
+
+.dashboard-back-wrap {
+    width: min(1200px, 94%);
+    margin: 0 auto 20px;
+}
+
+.dashboard-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    min-height: 40px;
+    padding: 0 15px;
+
+    background: #ffffff;
+    color: #36546f;
+
+    border: 1px solid #d5e2ed;
+    border-radius: 8px;
+
+    box-shadow: 0 3px 10px rgba(8,43,85,0.06);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: all 0.22s ease;
+}
+
+.dashboard-back-btn i {
+    color: #1769c2;
+    font-size: 11px;
+}
+
+.dashboard-back-btn:hover {
+    color: #0b5cab;
+    background: #f2f7fb;
+    border-color: #b9cfe2;
+
+    transform: translateX(-2px);
+
+    box-shadow: 0 6px 15px rgba(8,43,85,0.09);
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-back-wrap {
+        width: 96%;
+        margin-bottom: 16px;
+    }
+
+    .dashboard-back-btn {
+        min-height: 38px;
+        padding: 0 12px;
+        font-size: 11px;
+    }
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+
+        <!-- LOGO -->
+
+        <a href="{{ url_for('home') }}"
+           class="logo">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+
+            <div class="logo-text">
+
+                <span>
+                    Career &
+                </span>
+
+                <strong>
+                    Internship Network
+                </strong>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav class="nav-links">
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+
+            <a href="{{ url_for('internships') }}">
+                Internships
+            </a>
+
+
+            <a href="{{ url_for('institutes') }}">
+                Institutes
+            </a>
+
+
+            <a href="{{ url_for('career') }}">
+                Career Guide
+            </a>
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <div class="nav-actions">
+
+            <a href="{{ url_for('logout') }}"
+               class="login-btn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </div>
+
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- MOBILE NAV -->
+
+    <div class="mobile-nav"
+         id="mobileNav">
+
+        <a href="{{ url_for('home') }}">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+
+        <a href="{{ url_for('internships') }}">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Internships
+
+        </a>
+
+
+        <a href="{{ url_for('institutes') }}">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            Institutes
+
+        </a>
+
+
+        <a href="{{ url_for('career') }}">
+
+            <i class="fa-solid fa-compass"></i>
+
+            Career Guide
+
+        </a>
+
+
+        <a href="{{ url_for('profile') }}">
+
+            <i class="fa-solid fa-user"></i>
+
+            My Profile
+
+        </a>
+
+
+        <a href="{{ url_for('logout') }}">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+<!-- =================================================
+     BACK BUTTON
+================================================= -->
+
+<div class="dashboard-back-wrap">
+
+    <a href="{{ url_for('home') }}"
+       class="dashboard-back-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back to Home
+
+    </a>
+
+</div>
+
+        <!-- =================================================
+             WELCOME
+        ================================================== -->
+
+        <div class="dashboard-welcome">
+
+            <div>
+
+                <span>
+                    STUDENT DASHBOARD
+                </span>
+
+
+                <h1>
+                    Welcome, {{ student["name"] }} 👋
+                </h1>
+
+
+                <p>
+                    Discover internships, institutes and career
+                    opportunities that match your goals.
+                </p>
+
+            </div>
+
+
+            <a href="{{ url_for('internships') }}"
+               class="find-btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Find Internships
+
+            </a>
+
+        </div>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <div class="dashboard-stats">
+
+
+            <!-- APPLICATIONS -->
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <strong>
+                        {{ application_count }}
+                    </strong>
+
+                    <span>
+                        Applications
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SAVED -->
+
+            <a href="{{ url_for('saved_internships') }}"
+               class="dashboard-stat">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-bookmark"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <strong>
+                        {{ saved_count }}
+                    </strong>
+
+                    <span>
+                        Saved Internships
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- PROFILE -->
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <strong>
+                        {{ profile_completion }}%
+                    </strong>
+
+                    <span>
+                        Profile Complete
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             MAIN DASHBOARD GRID
+        ================================================== -->
+
+        <div class="dashboard-main-grid">
+
+
+
+            <!-- PROFILE CARD -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-header">
+
+                    <div>
+
+                        <h2>
+                            Complete Your Profile
+                        </h2>
+
+                    </div>
+
+
+                    <div class="card-header-icon">
+
+                        <i class="fa-solid fa-user-pen"></i>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    Add your education, branch, year and location
+                    so the platform can help you discover more
+                    relevant opportunities.
+
+                </p>
+
+
+
+                <!-- PROGRESS -->
+
+                <div class="progress-top">
+
+                    <span>
+                        Profile Completion
+                    </span>
+
+
+                    <strong>
+                        {{ profile_completion }}%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress-track">
+
+                    <div class="progress-fill"
+                         style="width: {{ profile_completion }}%;">
+                    </div>
+
+                </div>
+
+
+                <a href="{{ url_for('profile') }}"
+                   class="profile-btn">
+
+                    <i class="fa-solid fa-user-pen"></i>
+
+                    Update Profile
+
+                </a>
+
+            </div>
+
+
+
+            <!-- RECOMMENDATION -->
+
+            <div class="dashboard-card recommendation-card">
+
+
+                <div class="recommendation-icon">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                </div>
+
+
+                <h2>
+                    Recommended for You
+                </h2>
+
+
+                <p>
+
+                    Complete your profile to discover internships
+                    based on your education, branch, skills and
+                    location.
+
+                </p>
+
+
+                <a href="{{ url_for('internships') }}"
+                   class="explore-link">
+
+                    Explore Internships
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+        ================================================== -->
+
+        <div class="quick-heading">
+
+            <span>
+                QUICK ACTIONS
+            </span>
+
+
+            <h2>
+                Continue Your Career Journey
+            </h2>
+
+        </div>
+
+
+
+        <div class="quick-grid">
+
+
+
+            <!-- FIND INTERNSHIPS -->
+
+            <a href="{{ url_for('internships') }}"
+               class="quick-card">
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Find Internships
+                    </h3>
+
+                    <p>
+                        Explore internships based on your field,
+                        skills and location.
+                    </p>
+
+                </div>
+
+
+                <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+            </a>
+
+
+
+            <!-- SAVED -->
+
+            <a href="{{ url_for('saved_internships') }}"
+               class="quick-card">
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-bookmark"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Saved Internships
+                    </h3>
+
+                    <p>
+                        Quickly access opportunities you saved
+                        for later.
+                    </p>
+
+                </div>
+
+
+                <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+            </a>
+
+
+
+            <!-- PROFILE -->
+
+            <a href="{{ url_for('profile') }}"
+               class="quick-card">
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Update Profile
+                    </h3>
+
+                    <p>
+                        Keep your education, branch and location
+                        information updated.
+                    </p>
+
+                </div>
+
+
+                <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+            </a>
+
+
+
+            <!-- INSTITUTES -->
+
+            <a href="{{ url_for('institutes') }}"
+               class="quick-card">
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Find Institutes
+                    </h3>
+
+                    <p>
+                        Explore polytechnic and technical
+                        education institutes.
+                    </p>
+
+                </div>
+
+
+                <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+            </a>
+
+
+
+            <!-- CAREER GUIDE -->
+
+            <a href="{{ url_for('career') }}"
+               class="quick-card">
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-compass"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Career Guide
+                    </h3>
+
+                    <p>
+                        Explore career paths and discover skills
+                        you should build.
+                    </p>
+
+                </div>
+
+
+                <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+            </a>
+
+
+
+            <!-- DECISION ASSISTANT -->
+
+            <a href="{{ url_for('decision_assistant') }}"
+               class="quick-card decision-card">
+
+                <div class="quick-icon">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Internship Decision Assistant
+                    </h3>
+
+                    <p>
+                        Find opportunities matched with your
+                        education, interests and location.
+                    </p>
+
+                </div>
+
+
+                <i class="fa-solid fa-arrow-right quick-arrow"></i>
+
+            </a>
+
+
+        </div>
+
+
+        <div class="dashboard-footer-space"></div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    const mobileMenuBtn =
+        document.getElementById("mobileMenuBtn");
+
+    const mobileNav =
+        document.getElementById("mobileNav");
+
+
+    if (mobileMenuBtn && mobileNav) {
+
+        mobileMenuBtn.addEventListener(
+            "click",
+            function () {
+
+                mobileNav.classList.toggle("active");
+
+            }
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
