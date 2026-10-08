@@ -4,14 +4,14 @@ from psycopg.rows import dict_row
 
 
 # =========================================================
-# SUPABASE POSTGRESQL CONNECTION
+# NEON POSTGRESQL CONNECTION
 # =========================================================
 
-DATABASE_URL = os.getenv("SUPABASE_DB_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
     raise RuntimeError(
-        "SUPABASE_DB_URL environment variable is not set."
+        "DATABASE_URL environment variable is not set."
     )
 
 
@@ -21,8 +21,7 @@ class DatabaseConnection:
 
     Existing app.py uses SQLite-style '?' placeholders.
     This wrapper automatically converts them to PostgreSQL
-    '%s' placeholders, so app.py does not need hundreds of
-    manual query changes.
+    '%s' placeholders.
     """
 
     def __init__(self):
@@ -34,7 +33,7 @@ class DatabaseConnection:
 
     def execute(self, query, params=None):
         """
-        Convert SQLite '?' placeholders to psycopg '%s'
+        Convert SQLite '?' placeholders to PostgreSQL '%s'
         placeholders and execute the query.
         """
 
@@ -69,10 +68,8 @@ def get_db_connection():
 
 def create_tables():
     """
-    Tables already exist in Supabase.
-
-    We only test the connection here and do not recreate
-    or seed any tables.
+    Neon database tables have already been created.
+    We only test the connection here.
     """
 
     connection = get_db_connection()
