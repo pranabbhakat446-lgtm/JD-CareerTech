@@ -31,6 +31,25 @@ app.secret_key = "career_internship_network_secret_key"
 
 create_tables()
 
+@app.route("/sitemap.xml")
+def sitemap():
+    sitemap_xml = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://jd-career-tech.vercel.app/home</loc>
+    </url>
+    <url>
+        <loc>https://jd-career-tech.vercel.app/internships</loc>
+    </url>
+    <url>
+        <loc>https://jd-career-tech.vercel.app/institutes</loc>
+    </url>
+</urlset>"""
+
+    return app.response_class(
+        sitemap_xml,
+        mimetype="application/xml"
+    )
 @app.route("/")
 def index():
     return redirect(url_for("home"))
