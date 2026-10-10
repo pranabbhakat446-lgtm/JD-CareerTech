@@ -7776,3 +7776,338 @@ textarea:focus-visible {
         padding: 8px 9px !important;
     }
 }
+
+/* =====================================================
+   JD CAREERTECH — PREMIUM TECH UI UPGRADE
+   Visual upgrade only: existing features stay unchanged
+===================================================== */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background-color: #f7faff;
+}
+
+/* Premium glass-style navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(18, 67, 115, 0.10);
+    box-shadow: 0 8px 30px rgba(14, 48, 84, 0.06);
+}
+
+.logo-icon svg {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover .logo-icon svg {
+    transform: translateY(-2px) scale(1.04);
+    filter: drop-shadow(0 8px 15px rgba(0, 80, 160, 0.22));
+}
+
+.nav-links a,
+.nav-actions a,
+.mobile-menu-btn {
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
+}
+
+/* Modern blue-gradient homepage background */
+.hero-section {
+    isolation: isolate;
+    background:
+        radial-gradient(
+            circle at 82% 18%,
+            rgba(43, 139, 226, 0.13),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 8% 82%,
+            rgba(20, 128, 78, 0.06),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #f7fbff 0%,
+            #edf5ff 50%,
+            #ffffff 100%
+        ) !important;
+}
+
+.hero-badge {
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.82) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(20, 73, 120, 0.07);
+}
+
+.hero-content h1 {
+    text-wrap: balance;
+}
+
+.hero-content h1 span {
+    background: linear-gradient(
+        105deg,
+        #075aa9 0%,
+        #1682ca 35%,
+        #54a6ed 50%,
+        #075aa9 75%,
+        #1682ca 100%
+    ) !important;
+
+    background-size: 220% 100% !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+
+    animation: jdGradientSweep 8s ease-in-out infinite;
+}
+
+/* High-tech primary action button */
+.hero-primary-btn {
+    position: relative;
+    overflow: hidden;
+
+    color: #ffffff !important;
+    background: linear-gradient(
+        135deg,
+        #092e57,
+        #075eab,
+        #1484db
+    ) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 13px !important;
+
+    box-shadow: 0 12px 28px rgba(9, 77, 145, 0.22) !important;
+
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        filter 0.28s ease !important;
+}
+
+.hero-primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 36px rgba(9, 77, 145, 0.30) !important;
+    filter: brightness(1.08);
+}
+
+.hero-secondary-btn {
+    border-radius: 13px !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 7px 22px rgba(17, 55, 95, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease !important;
+}
+
+.hero-secondary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(17, 55, 95, 0.11);
+}
+
+/* Floating career dashboard preview */
+.career-dashboard-card {
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    border-radius: 22px !important;
+
+    background: rgba(255, 255, 255, 0.92) !important;
+
+    box-shadow:
+        0 25px 65px rgba(14, 49, 85, 0.13),
+        0 3px 12px rgba(14, 49, 85, 0.04) !important;
+
+    animation: jdCardFloat 7s ease-in-out infinite;
+}
+
+.mini-card-icon {
+    border-radius: 14px !important;
+    box-shadow: 0 8px 20px rgba(28, 112, 193, 0.12);
+}
+
+/* Premium feature cards */
+.feature-card {
+    position: relative;
+
+    border-radius: 20px !important;
+    background: linear-gradient(
+        145deg,
+        #ffffff 0%,
+        #f8fbff 100%
+    ) !important;
+
+    border: 1px solid rgba(29, 94, 151, 0.12) !important;
+
+    box-shadow: 0 12px 35px rgba(13, 48, 84, 0.055);
+
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(28, 122, 201, 0.38) !important;
+
+    box-shadow: 0 22px 45px rgba(13, 62, 112, 0.12) !important;
+}
+
+.feature-icon {
+    border-radius: 15px !important;
+
+    background: linear-gradient(
+        135deg,
+        #e1efff,
+        #f5faff
+    ) !important;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(29, 113, 190, 0.10),
+        0 8px 18px rgba(29, 113, 190, 0.07);
+}
+
+.feature-number {
+    color: rgba(25, 102, 179, 0.13) !important;
+}
+
+/* Smart internship matching panel */
+.decision-home-card {
+    background:
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(68, 158, 255, 0.22),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #061a34 0%,
+            #0a3b6f 58%,
+            #07579b 100%
+        ) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 25px !important;
+
+    box-shadow: 0 28px 75px rgba(5, 35, 68, 0.20) !important;
+}
+
+.decision-home-icon-card {
+    border-radius: 22px !important;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.13),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.decision-home-main-icon {
+    border-radius: 18px !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
+}
+
+.decision-home-btn {
+    border-radius: 12px !important;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease !important;
+}
+
+.decision-home-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.20);
+}
+
+/* Subtle orbital animation */
+.decision-home-orbit {
+    animation: jdOrbit 45s linear infinite;
+}
+
+/* Clear keyboard focus for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(35, 133, 222, 0.75);
+    outline-offset: 3px;
+}
+
+/* Animations */
+@keyframes jdGradientSweep {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes jdCardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes jdOrbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Preserve comfortable mobile appearance */
+@media (max-width: 850px) {
+    .career-dashboard-card {
+        animation: none;
+    }
+
+    .decision-home-card {
+        border-radius: 19px !important;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-3px);
+    }
+}
